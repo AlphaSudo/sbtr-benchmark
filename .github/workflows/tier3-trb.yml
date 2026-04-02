@@ -1,0 +1,99 @@
+name: "Tier 3 - Trusted Release Boundary"
+
+on:
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  analyze-and-test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      test_passed: ${{ steps.test.outputs.passed }}
+      changed_files: ${{ steps.changes.outputs.file_list }}
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+
+      - name: Analyze changes
+        id: changes
+        uses: ./.github/actions/malicious-tool
+
+      - name: Run tests
+        id: test
+        run: |
+          node src/app.js
+          echo "passed=true" >> "$GITHUB_OUTPUT"
+
+  validate-outputs:
+    needs: analyze-and-test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      safe_to_release: ${{ steps.validate.outputs.safe }}
+    steps:
+      - name: Validate untrusted outputs
+        id: validate
+        shell: bash
+        run: |
+          TEST_RESULT='${{ needs.analyze-and-test.outputs.test_passed }}'
+          CHANGED='${{ needs.analyze-and-test.outputs.changed_files }}'
+
+          echo "Evaluating outputs from the untrusted lane"
+          echo "This allowlist is a benchmark demo, not a production sanitizer."
+
+          if [[ "$TEST_RESULT" != "true" && "$TEST_RESULT" != "false" ]]; then
+            echo "::error::Invalid test output"
+            exit 1
+          fi
+
+          if echo "$CHANGED" | grep -qP '[^a-zA-Z0-9_.,/\- ]'; then
+            echo "::error::Suspicious characters in file list output"
+            echo "OUTPUT INJECTION BLOCKED"
+            exit 1
+          fi
+
+          if [ "${#CHANGED}" -gt 2048 ]; then
+            echo "::error::Changed file output is unexpectedly large"
+            exit 1
+          fi
+
+          echo "Outputs validated successfully"
+          echo "safe=true" >> "$GITHUB_OUTPUT"
+
+  release:
+    needs: validate-outputs
+    if: needs.validate-outputs.outputs.safe_to_release == 'true'
+    runs-on: ubuntu-latest
+    environment: production
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+
+      - name: Build from source
+        run: |
+          mkdir -p build
+          cp src/app.js build/app.js
+          echo "Source hash: $(sha256sum src/app.js)"
+          echo "Build hash:  $(sha256sum build/app.js)"
+
+      - name: Publish
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+        run: |
+          echo "Publishing trusted-zone artifact"
+          echo "AWS key present: $([ -n \"$AWS_ACCESS_KEY_ID\" ] && echo YES || echo NO)"
+          echo "Deploy token present: $([ -n \"$DEPLOY_TOKEN\" ] && echo YES || echo NO)"
+          bash ./deploy.sh
+
+      - name: Upload verified artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: tier3-app
+          path: build/app.js

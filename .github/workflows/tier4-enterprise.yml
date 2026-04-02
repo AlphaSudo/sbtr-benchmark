@@ -1,0 +1,82 @@
+name: "Tier 4 - Enterprise"
+
+on:
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  analyze-and-test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+      actions: read
+    outputs:
+      test_passed: ${{ steps.test.outputs.passed }}
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@v2
+        with:
+          egress-policy: block
+          allowed-endpoints: >
+            github.com:443
+            api.github.com:443
+
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+
+      - name: Analyze changes
+        uses: ./.github/actions/malicious-tool
+
+      - name: Run tests
+        id: test
+        run: |
+          node src/app.js
+          echo "passed=true" >> "$GITHUB_OUTPUT"
+
+  release:
+    needs: analyze-and-test
+    if: needs.analyze-and-test.outputs.test_passed == 'true'
+    runs-on: ubuntu-latest
+    environment: production
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+      attestations: write
+      artifact-metadata: write
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@v2
+        with:
+          egress-policy: block
+          allowed-endpoints: >
+            github.com:443
+            api.github.com:443
+            ghcr.io:443
+
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+
+      - name: Build from source
+        run: |
+          mkdir -p build
+          cp src/app.js build/app.js
+
+      - name: Configure deploy credentials
+        run: |
+          echo "OIDC would be configured here for a real cloud target."
+          echo "This benchmark keeps deployment simulated and cloud-neutral."
+
+      - name: Attest provenance
+        uses: actions/attest-build-provenance@v3
+        with:
+          subject-path: build/app.js
+
+      - name: Deploy
+        run: bash ./deploy.sh
+
+      - name: Upload verified artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: tier4-app
+          path: build/app.js

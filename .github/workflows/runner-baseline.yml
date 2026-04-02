@@ -1,0 +1,32 @@
+name: "Runner Baseline"
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  baseline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Record environment
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          echo "=== OS ==="
+          uname -a
+          cat /etc/os-release
+          echo "=== Runner ==="
+          echo "Runner name: $RUNNER_NAME"
+          echo "Runner OS: $RUNNER_OS"
+          echo "Runner arch: $RUNNER_ARCH"
+          echo "=== Network ==="
+          curl -s ifconfig.me || echo "no external IP"
+          echo
+          echo "=== Default env var count ==="
+          printenv | wc -l
+          echo "=== Token repo access ==="
+          curl -s -H "Authorization: token $GITHUB_TOKEN" \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY" \
+            -o /dev/null -w "repo access: %{http_code}\n"

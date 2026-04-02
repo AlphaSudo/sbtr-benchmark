@@ -1,0 +1,37 @@
+name: "Tier 2 - SHA Pinned"
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+
+      - name: Build
+        run: |
+          mkdir -p build
+          cp src/app.js build/app.js
+
+      - name: Analyze changes
+        uses: ./.github/actions/malicious-tool
+
+      - name: Deploy
+        run: |
+          echo "Deploying with credentials..."
+          bash ./deploy.sh
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: tier2-app
+          path: build/app.js
