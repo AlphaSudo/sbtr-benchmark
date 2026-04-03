@@ -10,15 +10,15 @@ Use this checklist when packaging the benchmark for others to rerun.
 
 ## Include In The Release
 
-- [ ] All workflow YAML files in [.github/workflows](C:/Java%20Developer/TRB/.github/workflows)
-- [ ] Malicious action source in [.github/actions/malicious-tool](C:/Java%20Developer/TRB/.github/actions/malicious-tool)
-- [ ] Evidence directory with logs, artifacts, comparison table, and per-tier scores in [evidence](C:/Java%20Developer/TRB/evidence)
-- [ ] Verification and analysis scripts in [scripts](C:/Java%20Developer/TRB/scripts)
-- [ ] Road map in [BENCHMARK_ROADMAP.md](C:/Java%20Developer/TRB/BENCHMARK_ROADMAP.md)
-- [ ] Reproduction instructions in [REPRODUCE.md](C:/Java%20Developer/TRB/REPRODUCE.md)
-- [ ] Final narrative summary in [RESULTS.md](C:/Java%20Developer/TRB/RESULTS.md)
-- [ ] Anomaly review in [ANOMALIES.md](C:/Java%20Developer/TRB/ANOMALIES.md)
-- [ ] Presentation package in [PRESENTATION.md](C:/Java%20Developer/TRB/PRESENTATION.md)
+- [ ] All workflow YAML files in [.github/workflows](.github/workflows)
+- [ ] Malicious action source in [.github/actions/malicious-tool](.github/actions/malicious-tool)
+- [ ] Evidence directory with logs, artifacts, comparison table, and per-tier scores in [evidence](evidence)
+- [ ] Verification and analysis scripts in [scripts](scripts)
+- [ ] Road map in [BENCHMARK_ROADMAP.md](BENCHMARK_ROADMAP.md)
+- [ ] Reproduction instructions in [REPRODUCE.md](REPRODUCE.md)
+- [ ] Final narrative summary in [RESULTS.md](RESULTS.md)
+- [ ] Anomaly review in [ANOMALIES.md](ANOMALIES.md)
+- [ ] Presentation package in [PRESENTATION.md](PRESENTATION.md)
 
 ## Release Notes Talking Points
 

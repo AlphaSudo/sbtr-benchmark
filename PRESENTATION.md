@@ -4,11 +4,11 @@
 
 | Video Moment | Evidence Source |
 |---|---|
-| "Here's what a compromised action does" | [Tier 1 scores](C:/Java%20Developer/TRB/evidence/tier-1/scores.md) plus the extracted logs in [tier-1](C:/Java%20Developer/TRB/evidence/tier-1) |
-| "SHA-pinning doesn't help when you pin the wrong thing" | [Tier 2 scores](C:/Java%20Developer/TRB/evidence/tier-2/scores.md) and the poisoned Tier 2 artifact in [tier-2](C:/Java%20Developer/TRB/evidence/tier-2) |
-| "The fix costs $0 and takes about 90 minutes" | [Tier 3 scores](C:/Java%20Developer/TRB/evidence/tier-3/scores.md) and the clean rebuilt artifact in [tier-3](C:/Java%20Developer/TRB/evidence/tier-3) |
-| "The artifact proof" | Hash comparison evidence across [tier-1](C:/Java%20Developer/TRB/evidence/tier-1), [tier-2](C:/Java%20Developer/TRB/evidence/tier-2), [tier-3](C:/Java%20Developer/TRB/evidence/tier-3), and [tier-4](C:/Java%20Developer/TRB/evidence/tier-4) |
-| "The comparison" | [comparison-table.md](C:/Java%20Developer/TRB/evidence/comparison-table.md) |
+| "Here's what a compromised action does" | [Tier 1 scores](evidence/tier-1/scores.md) plus the extracted logs in [tier-1](evidence/tier-1) |
+| "SHA-pinning doesn't help when you pin the wrong thing" | [Tier 2 scores](evidence/tier-2/scores.md) and the poisoned Tier 2 artifact in [tier-2](evidence/tier-2) |
+| "The fix costs $0 and takes about 90 minutes" | [Tier 3 scores](evidence/tier-3/scores.md) and the clean rebuilt artifact in [tier-3](evidence/tier-3) |
+| "The artifact proof" | Hash comparison evidence across [tier-1](evidence/tier-1), [tier-2](evidence/tier-2), [tier-3](evidence/tier-3), and [tier-4](evidence/tier-4) |
+| "The comparison" | [comparison-table.md](evidence/comparison-table.md) |
 
 ## Short Video / Demo Script
 

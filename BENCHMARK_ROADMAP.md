@@ -45,7 +45,7 @@ Score each tier on:
 - `Network exfiltration`
 - `Source exposure`
 
-Use the strict `0/1/2` rubric in [expected-results.md](/C:/Java%20Developer/TRB/expected-results.md). Exclude `N/A` from the composite denominator.
+Use the strict `0/1/2` rubric in [expected-results.md](expected-results.md). Exclude `N/A` from the composite denominator.
 
 Composite score:
 

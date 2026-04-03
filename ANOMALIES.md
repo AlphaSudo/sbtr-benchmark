@@ -1,6 +1,6 @@
 # Anomaly Review
 
-This review compares the actual benchmark outcomes against the pre-registered expectations in [expected-results.md](/C:/Java%20Developer/TRB/expected-results.md).
+This review compares the actual benchmark outcomes against the pre-registered expectations in [expected-results.md](expected-results.md).
 
 ## Result
 

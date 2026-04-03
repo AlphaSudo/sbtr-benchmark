@@ -104,8 +104,8 @@ It closes the largest gap between insecure/default workflows and enterprise-grad
 
 ## Evidence Index
 
-- Summary table: [comparison-table.md](C:/Java%20Developer/TRB/evidence/comparison-table.md)
-- Tier 1 details: [scores.md](C:/Java%20Developer/TRB/evidence/tier-1/scores.md)
-- Tier 2 details: [scores.md](C:/Java%20Developer/TRB/evidence/tier-2/scores.md)
-- Tier 3 details: [scores.md](C:/Java%20Developer/TRB/evidence/tier-3/scores.md)
-- Tier 4 details: [scores.md](C:/Java%20Developer/TRB/evidence/tier-4/scores.md)
+- Summary table: [comparison-table.md](evidence/comparison-table.md)
+- Tier 1 details: [scores.md](evidence/tier-1/scores.md)
+- Tier 2 details: [scores.md](evidence/tier-2/scores.md)
+- Tier 3 details: [scores.md](evidence/tier-3/scores.md)
+- Tier 4 details: [scores.md](evidence/tier-4/scores.md)
