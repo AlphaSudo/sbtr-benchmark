@@ -1,0 +1,31 @@
+﻿2026-04-02T19:45:45.5624477Z ##[group]Run step-security/harden-runner@v2
+2026-04-02T19:45:45.5625593Z with:
+2026-04-02T19:45:45.5626039Z   egress-policy: block
+2026-04-02T19:45:45.5626598Z   allowed-endpoints: github.com:443 api.github.com:443
+
+2026-04-02T19:45:45.5627458Z   token: ***
+2026-04-02T19:45:45.5627993Z   disable-telemetry: false
+2026-04-02T19:45:45.5628631Z   disable-sudo: false
+2026-04-02T19:45:45.5629144Z   disable-sudo-and-containers: false
+2026-04-02T19:45:45.5629692Z   disable-file-monitoring: false
+2026-04-02T19:45:45.5630466Z ##[endgroup]
+2026-04-02T19:45:45.6837617Z [harden-runner] pre-step
+2026-04-02T19:45:45.6838829Z [!] Current Configuration: 
+2026-04-02T19:45:45.6842601Z {"repo":"AlphaSudo/sbtr-benchmark","run_id":"23918796175","correlation_id":"fba80278-079a-4578-bc7c-63f0ce54cbb8","working_directory":"/home/runner/work/sbtr-benchmark/sbtr-benchmark","api_url":"https://agent.api.stepsecurity.io/v1","allowed_endpoints":"github.com:443 api.github.com:443","egress_policy":"block","disable_telemetry":false,"disable_sudo":false,"disable_sudo_and_containers":false,"disable_file_monitoring":false,"private":false,"is_github_hosted":true,"is_debug":false,"one_time_key":""}
+2026-04-02T19:45:45.6845778Z 
+2026-04-02T19:45:45.7044292Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/sbtr-benchmark/sbtr-benchmark --files-from manifest.txt --use-compress-program zstdmt
+2026-04-02T19:45:45.8593571Z Failed to save: Unable to reserve cache with key harden-runner-cacheKey, another job may be creating this cache.
+2026-04-02T19:45:45.8600485Z -1
+2026-04-02T19:45:45.8602224Z cache version: v2
+2026-04-02T19:45:45.8603470Z cacheFilePath /home/runner/work/_actions/step-security/harden-runner/v2/dist/pre/cache.txt
+2026-04-02T19:45:45.9598975Z Adding cacheHost: productionresultssa4.blob.core.windows.net:443 to allowed-endpoints
+2026-04-02T19:45:45.9601373Z [32mView security insights and recommended policy at:[0m
+2026-04-02T19:45:45.9604030Z https://app.stepsecurity.io/github/AlphaSudo/sbtr-benchmark/actions/runs/23918796175
+2026-04-02T19:45:45.9606569Z RUNNER_NAME: GitHub Actions 1000000370
+2026-04-02T19:45:46.5417012Z Runner IP Address: 52.165.59.4
+2026-04-02T19:45:46.5419200Z Step Security Job Correlation ID: fba80278-079a-4578-bc7c-63f0ce54cbb8
+2026-04-02T19:45:46.5609747Z [!] Checking TLS_STATUS: AlphaSudo
+2026-04-02T19:45:46.7486827Z [!] TLS_NOT_ENABLED: AlphaSudo
+2026-04-02T19:45:47.1115065Z ✅ Checksum verification passed. checksum=1531bda40026b799b0704d0f775c372653a91fe436628fa8b416849d9c0707a8
+2026-04-02T19:45:47.1188451Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/ee731df8-757d-4964-a398-afcd3a042ef5 -f /home/runner/work/_temp/f68b2aff-4c60-4e29-82d1-4bb952d5371d
+2026-04-02T19:45:52.8761286Z Initialized

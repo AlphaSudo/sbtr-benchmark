@@ -1,0 +1,6 @@
+﻿2026-04-02T19:11:22.8041741Z ##[group]Run node src/app.js
+2026-04-02T19:11:22.8042060Z [36;1mnode src/app.js[0m
+2026-04-02T19:11:22.8042342Z [36;1mecho "passed=true" >> "$GITHUB_OUTPUT"[0m
+2026-04-02T19:11:22.8069493Z shell: /usr/bin/bash -e {0}
+2026-04-02T19:11:22.8069784Z ##[endgroup]
+2026-04-02T19:11:22.8903949Z sbtr-benchmark v1.0.0

@@ -1,0 +1,33 @@
+﻿2026-04-02T19:45:44.0931567Z Current runner version: '2.333.1'
+2026-04-02T19:45:44.0965650Z ##[group]Runner Image Provisioner
+2026-04-02T19:45:44.0966959Z Hosted Compute Agent
+2026-04-02T19:45:44.0967794Z Version: 20260213.493
+2026-04-02T19:45:44.0968767Z Commit: 5c115507f6dd24b8de37d8bbe0bb4509d0cc0fa3
+2026-04-02T19:45:44.0970165Z Build Date: 2026-02-13T00:28:41Z
+2026-04-02T19:45:44.0971238Z Worker ID: {d7180b51-9891-4def-8e59-e3fefe59b056}
+2026-04-02T19:45:44.0972712Z Azure Region: centralus
+2026-04-02T19:45:44.0973603Z ##[endgroup]
+2026-04-02T19:45:44.0975883Z ##[group]Operating System
+2026-04-02T19:45:44.0976792Z Ubuntu
+2026-04-02T19:45:44.0977470Z 24.04.4
+2026-04-02T19:45:44.0978362Z LTS
+2026-04-02T19:45:44.0979096Z ##[endgroup]
+2026-04-02T19:45:44.0979977Z ##[group]Runner Image
+2026-04-02T19:45:44.0981059Z Image: ubuntu-24.04
+2026-04-02T19:45:44.0982235Z Version: 20260323.65.1
+2026-04-02T19:45:44.0984034Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260323.65/images/ubuntu/Ubuntu2404-Readme.md
+2026-04-02T19:45:44.0987122Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260323.65
+2026-04-02T19:45:44.0988938Z ##[endgroup]
+2026-04-02T19:45:44.0991290Z ##[group]GITHUB_TOKEN Permissions
+2026-04-02T19:45:44.0994306Z Actions: read
+2026-04-02T19:45:44.0995221Z Contents: read
+2026-04-02T19:45:44.0995961Z Metadata: read
+2026-04-02T19:45:44.0996875Z SecurityEvents: write
+2026-04-02T19:45:44.0997812Z ##[endgroup]
+2026-04-02T19:45:44.1001053Z Secret source: Actions
+2026-04-02T19:45:44.1002759Z Prepare workflow directory
+2026-04-02T19:45:44.1378875Z Prepare all required actions
+2026-04-02T19:45:44.1436807Z Getting action download info
+2026-04-02T19:45:44.4967085Z Download action repository 'step-security/harden-runner@v2' (SHA:fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594)
+2026-04-02T19:45:45.3197445Z Download action repository 'actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11' (SHA:b4ffde65f46336ab88eb53be808477a3936bae11)
+2026-04-02T19:45:45.4931516Z Complete job name: analyze-and-test

@@ -1,0 +1,67 @@
+﻿2026-04-02T19:11:34.4599026Z ##[group]Run actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+2026-04-02T19:11:34.4600350Z with:
+2026-04-02T19:11:34.4600817Z   repository: AlphaSudo/sbtr-benchmark
+2026-04-02T19:11:34.4601501Z   token: ***
+2026-04-02T19:11:34.4601908Z   ssh-strict: true
+2026-04-02T19:11:34.4602342Z   persist-credentials: true
+2026-04-02T19:11:34.4602798Z   clean: true
+2026-04-02T19:11:34.4603217Z   sparse-checkout-cone-mode: true
+2026-04-02T19:11:34.4603708Z   fetch-depth: 1
+2026-04-02T19:11:34.4604116Z   fetch-tags: false
+2026-04-02T19:11:34.4604535Z   show-progress: true
+2026-04-02T19:11:34.4604960Z   lfs: false
+2026-04-02T19:11:34.4605345Z   submodules: false
+2026-04-02T19:11:34.4605819Z   set-safe-directory: true
+2026-04-02T19:11:34.4606537Z ##[endgroup]
+2026-04-02T19:11:34.5469088Z Syncing repository: AlphaSudo/sbtr-benchmark
+2026-04-02T19:11:34.5471148Z ##[group]Getting Git version info
+2026-04-02T19:11:34.5471968Z Working directory is '/home/runner/work/sbtr-benchmark/sbtr-benchmark'
+2026-04-02T19:11:34.5473097Z [command]/usr/bin/git version
+2026-04-02T19:11:34.5512372Z git version 2.53.0
+2026-04-02T19:11:34.5539359Z ##[endgroup]
+2026-04-02T19:11:34.5553600Z Temporarily overriding HOME='/home/runner/work/_temp/9f20939f-2555-45d1-a44e-b1e313206630' before making global git config changes
+2026-04-02T19:11:34.5556015Z Adding repository directory to the temporary git global config as a safe directory
+2026-04-02T19:11:34.5558238Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/sbtr-benchmark/sbtr-benchmark
+2026-04-02T19:11:34.5588621Z Deleting the contents of '/home/runner/work/sbtr-benchmark/sbtr-benchmark'
+2026-04-02T19:11:34.5592443Z ##[group]Initializing the repository
+2026-04-02T19:11:34.5596307Z [command]/usr/bin/git init /home/runner/work/sbtr-benchmark/sbtr-benchmark
+2026-04-02T19:11:34.5700360Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-04-02T19:11:34.5702083Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-04-02T19:11:34.5703125Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-04-02T19:11:34.5704141Z hint: call:
+2026-04-02T19:11:34.5704541Z hint:
+2026-04-02T19:11:34.5705191Z hint: 	git config --global init.defaultBranch <name>
+2026-04-02T19:11:34.5705795Z hint:
+2026-04-02T19:11:34.5706664Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-04-02T19:11:34.5707829Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-04-02T19:11:34.5708571Z hint:
+2026-04-02T19:11:34.5708992Z hint: 	git branch -m <name>
+2026-04-02T19:11:34.5709583Z hint:
+2026-04-02T19:11:34.5710723Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-04-02T19:11:34.5711790Z Initialized empty Git repository in /home/runner/work/sbtr-benchmark/sbtr-benchmark/.git/
+2026-04-02T19:11:34.5713656Z [command]/usr/bin/git remote add origin https://github.com/AlphaSudo/sbtr-benchmark
+2026-04-02T19:11:34.5739255Z ##[endgroup]
+2026-04-02T19:11:34.5740290Z ##[group]Disabling automatic garbage collection
+2026-04-02T19:11:34.5741873Z [command]/usr/bin/git config --local gc.auto 0
+2026-04-02T19:11:34.5766877Z ##[endgroup]
+2026-04-02T19:11:34.5767960Z ##[group]Setting up auth
+2026-04-02T19:11:34.5771839Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-04-02T19:11:34.5797274Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-04-02T19:11:34.6070454Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-04-02T19:11:34.6097361Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-04-02T19:11:34.6323927Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-04-02T19:11:34.6356784Z ##[endgroup]
+2026-04-02T19:11:34.6364917Z ##[group]Fetching the repository
+2026-04-02T19:11:34.6367401Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +c0fe69ccb7bcad29fbc3840faa279108cf19d4c1:refs/remotes/origin/main
+2026-04-02T19:11:34.7909122Z From https://github.com/AlphaSudo/sbtr-benchmark
+2026-04-02T19:11:34.7910502Z  * [new ref]         c0fe69ccb7bcad29fbc3840faa279108cf19d4c1 -> origin/main
+2026-04-02T19:11:34.7935677Z ##[endgroup]
+2026-04-02T19:11:34.7936430Z ##[group]Determining the checkout info
+2026-04-02T19:11:34.7937986Z ##[endgroup]
+2026-04-02T19:11:34.7938715Z ##[group]Checking out the ref
+2026-04-02T19:11:34.7942363Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-04-02T19:11:34.7995284Z Switched to a new branch 'main'
+2026-04-02T19:11:34.7997920Z branch 'main' set up to track 'origin/main'.
+2026-04-02T19:11:34.8004801Z ##[endgroup]
+2026-04-02T19:11:34.8036232Z [command]/usr/bin/git log -1 --format='%H'
+2026-04-02T19:11:34.8056411Z 'c0fe69ccb7bcad29fbc3840faa279108cf19d4c1'

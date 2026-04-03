@@ -1,0 +1,15 @@
+﻿2026-04-02T19:11:34.8448096Z ##[group]Run echo "Publishing trusted-zone artifact"
+2026-04-02T19:11:34.8448827Z [36;1mecho "Publishing trusted-zone artifact"[0m
+2026-04-02T19:11:34.8449629Z [36;1mecho "AWS key present: $([ -n \"$AWS_ACCESS_KEY_ID\" ] && echo YES || echo NO)"[0m
+2026-04-02T19:11:34.8451108Z [36;1mecho "Deploy token present: $([ -n \"$DEPLOY_TOKEN\" ] && echo YES || echo NO)"[0m
+2026-04-02T19:11:34.8451872Z [36;1mbash ./deploy.sh[0m
+2026-04-02T19:11:34.8476109Z shell: /usr/bin/bash -e {0}
+2026-04-02T19:11:34.8476643Z env:
+2026-04-02T19:11:34.8477134Z   AWS_ACCESS_KEY_ID: ***
+2026-04-02T19:11:34.8477745Z   AWS_SECRET_ACCESS_KEY: ***
+2026-04-02T19:11:34.8478344Z   DEPLOY_TOKEN: ***
+2026-04-02T19:11:34.8478748Z ##[endgroup]
+2026-04-02T19:11:34.8523724Z Publishing trusted-zone artifact
+2026-04-02T19:11:34.8528070Z AWS key present: YES
+2026-04-02T19:11:34.8532548Z Deploy token present: YES
+2026-04-02T19:11:34.8545591Z deploy: would ship build/app.js to production

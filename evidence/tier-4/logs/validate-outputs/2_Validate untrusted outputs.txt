@@ -1,0 +1,30 @@
+﻿2026-04-02T19:46:00.1072394Z ##[group]Run TEST_RESULT='true'
+2026-04-02T19:46:00.1073135Z [36;1mTEST_RESULT='true'[0m
+2026-04-02T19:46:00.1073779Z [36;1mCHANGED=''[0m
+2026-04-02T19:46:00.1074288Z [36;1m[0m
+2026-04-02T19:46:00.1074877Z [36;1mecho "Evaluating outputs from the untrusted lane"[0m
+2026-04-02T19:46:00.1075915Z [36;1mecho "This allowlist is a benchmark demo, not a production sanitizer."[0m
+2026-04-02T19:46:00.1076749Z [36;1m[0m
+2026-04-02T19:46:00.1077426Z [36;1mif [[ "$TEST_RESULT" != "true" && "$TEST_RESULT" != "false" ]]; then[0m
+2026-04-02T19:46:00.1078205Z [36;1m  echo "::error::Invalid test output"[0m
+2026-04-02T19:46:00.1079146Z [36;1m  exit 1[0m
+2026-04-02T19:46:00.1079591Z [36;1mfi[0m
+2026-04-02T19:46:00.1080149Z [36;1m[0m
+2026-04-02T19:46:00.1080748Z [36;1mif echo "$CHANGED" | grep -qP '[^a-zA-Z0-9_.,/\- ]'; then[0m
+2026-04-02T19:46:00.1081602Z [36;1m  echo "::error::Suspicious characters in file list output"[0m
+2026-04-02T19:46:00.1082436Z [36;1m  echo "OUTPUT INJECTION BLOCKED"[0m
+2026-04-02T19:46:00.1083071Z [36;1m  exit 1[0m
+2026-04-02T19:46:00.1083594Z [36;1mfi[0m
+2026-04-02T19:46:00.1084045Z [36;1m[0m
+2026-04-02T19:46:00.1084526Z [36;1mif [ "${#CHANGED}" -gt 2048 ]; then[0m
+2026-04-02T19:46:00.1085318Z [36;1m  echo "::error::Changed file output is unexpectedly large"[0m
+2026-04-02T19:46:00.1086032Z [36;1m  exit 1[0m
+2026-04-02T19:46:00.1086462Z [36;1mfi[0m
+2026-04-02T19:46:00.1086983Z [36;1m[0m
+2026-04-02T19:46:00.1087451Z [36;1mecho "Outputs validated successfully"[0m
+2026-04-02T19:46:00.1088131Z [36;1mecho "safe=true" >> "$GITHUB_OUTPUT"[0m
+2026-04-02T19:46:00.1505311Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-04-02T19:46:00.1506581Z ##[endgroup]
+2026-04-02T19:46:00.1704661Z Evaluating outputs from the untrusted lane
+2026-04-02T19:46:00.1705862Z This allowlist is a benchmark demo, not a production sanitizer.
+2026-04-02T19:46:00.1706657Z Outputs validated successfully

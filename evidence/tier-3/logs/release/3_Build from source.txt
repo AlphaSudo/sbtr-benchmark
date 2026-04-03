@@ -1,0 +1,9 @@
+﻿2026-04-02T19:11:34.8236483Z ##[group]Run mkdir -p build
+2026-04-02T19:11:34.8237074Z [36;1mmkdir -p build[0m
+2026-04-02T19:11:34.8237584Z [36;1mcp src/app.js build/app.js[0m
+2026-04-02T19:11:34.8238216Z [36;1mecho "Source hash: $(sha256sum src/app.js)"[0m
+2026-04-02T19:11:34.8238924Z [36;1mecho "Build hash:  $(sha256sum build/app.js)"[0m
+2026-04-02T19:11:34.8268682Z shell: /usr/bin/bash -e {0}
+2026-04-02T19:11:34.8269203Z ##[endgroup]
+2026-04-02T19:11:34.8382827Z Source hash: c4657bc50ab6be26c54354f5304097ead527c46dbf2d72e0efbc35b1727b5988  src/app.js
+2026-04-02T19:11:34.8398109Z Build hash:  c4657bc50ab6be26c54354f5304097ead527c46dbf2d72e0efbc35b1727b5988  build/app.js

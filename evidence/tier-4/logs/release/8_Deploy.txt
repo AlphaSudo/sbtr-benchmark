@@ -1,0 +1,5 @@
+﻿2026-04-02T19:46:13.3998231Z ##[group]Run bash ./deploy.sh
+2026-04-02T19:46:13.3998499Z [36;1mbash ./deploy.sh[0m
+2026-04-02T19:46:13.4014086Z shell: /usr/bin/bash -e {0}
+2026-04-02T19:46:13.4014313Z ##[endgroup]
+2026-04-02T19:46:13.4059795Z deploy: would ship build/app.js to production

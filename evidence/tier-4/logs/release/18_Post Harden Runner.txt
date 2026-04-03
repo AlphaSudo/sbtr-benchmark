@@ -1,0 +1,93 @@
+﻿2026-04-02T19:46:14.2701141Z Post job cleanup.
+2026-04-02T19:46:14.3338287Z [harden-runner] post-step
+2026-04-02T19:46:15.3368754Z log:
+2026-04-02T19:46:15.3369583Z Thu, 02 Apr 2026 19:46:09 GMT:[buildInfo] tag=v0.14.4 commit=206a878142929550e5382f5b977384f0c313f93d branch=HEAD 
+2026-04-02T19:46:15.3370246Z 
+2026-04-02T19:46:15.3370410Z Thu, 02 Apr 2026 19:46:09 GMT:read config 
+2026-04-02T19:46:15.3373571Z  &{Repo:AlphaSudo/sbtr-benchmark CorrelationId:ea7ae2ec-22a9-4497-8039-9419956d7803 RunId:23918796175 WorkingDirectory:/home/runner/work/sbtr-benchmark/sbtr-benchmark APIURL:https://agent.api.stepsecurity.io/v1 OneTimeKey: Endpoints:map[api.github.com.:[{domainName:api.github.com. port:443}] fulcio.sigstore.dev.:[{domainName:fulcio.sigstore.dev. port:443}] ghcr.io.:[{domainName:ghcr.io. port:443}] github.com.:[{domainName:github.com. port:443}] productionresultssa4.blob.core.windows.net.:[{domainName:productionresultssa4.blob.core.windows.net. port:443}] rekor.sigstore.dev.:[{domainName:rekor.sigstore.dev. port:443}]] EgressPolicy:block DisableTelemetry:false DisableSudo:false DisableSudoAndContainers:false DisableFileMonitoring:false Private:false}
+2026-04-02T19:46:15.3376145Z 
+2026-04-02T19:46:15.3376384Z Thu, 02 Apr 2026 19:46:09 GMT:Step Security Job Correlation ID: ea7ae2ec-22a9-4497-8039-9419956d7803
+2026-04-02T19:46:15.3376712Z 
+2026-04-02T19:46:15.3376918Z Thu, 02 Apr 2026 19:46:10 GMT:Global feature flags: {AgentType:agent-oss EnableArmour:false}
+2026-04-02T19:46:15.3377357Z Thu, 02 Apr 2026 19:46:10 GMT:initialized global feature flags
+2026-04-02T19:46:15.3377577Z 
+2026-04-02T19:46:15.3377693Z Thu, 02 Apr 2026 19:46:10 GMT:started process monitor
+2026-04-02T19:46:15.3377892Z 
+2026-04-02T19:46:15.3378010Z Thu, 02 Apr 2026 19:46:10 GMT:Monitor Processes called
+2026-04-02T19:46:15.3378567Z Thu, 02 Apr 2026 19:46:10 GMT:NewAuditClient created
+2026-04-02T19:46:15.3378857Z Thu, 02 Apr 2026 19:46:10 GMT:Status is enabled
+2026-04-02T19:46:15.3379133Z Thu, 02 Apr 2026 19:46:10 GMT:Rules deleted
+2026-04-02T19:46:15.3379536Z Thu, 02 Apr 2026 19:46:10 GMT:File monitor added for /home/runner/work/sbtr-benchmark/sbtr-benchmark
+2026-04-02T19:46:15.3379975Z Thu, 02 Apr 2026 19:46:10 GMT:Agent file monitor added
+2026-04-02T19:46:15.3380522Z Thu, 02 Apr 2026 19:46:10 GMT:Docker's daemon.json file monitor added
+2026-04-02T19:46:15.3381161Z Thu, 02 Apr 2026 19:46:10 GMT:Systemd's resolved.conf file monitor added
+2026-04-02T19:46:15.3381703Z Thu, 02 Apr 2026 19:46:10 GMT:Net monitor added for TCP (connect)
+2026-04-02T19:46:15.3382222Z Thu, 02 Apr 2026 19:46:10 GMT:Net monitor added for UDP (sendto & sendmsg)
+2026-04-02T19:46:15.3382749Z Thu, 02 Apr 2026 19:46:10 GMT:Process monitor added
+2026-04-02T19:46:15.3383285Z Thu, 02 Apr 2026 19:46:10 GMT:receive called
+2026-04-02T19:46:15.3383597Z 
+2026-04-02T19:46:15.3383986Z Thu, 02 Apr 2026 19:46:10 GMT:domain resolved: rekor.sigstore.dev., ip address: 34.36.47.134, TTL: 60
+2026-04-02T19:46:15.3384939Z Thu, 02 Apr 2026 19:46:10 GMT:domain resolved: productionresultssa4.blob.core.windows.net., ip address: 57.150.27.1, TTL: 60
+2026-04-02T19:46:15.3385565Z Thu, 02 Apr 2026 19:46:10 GMT:domain resolved: github.com., ip address: 140.82.112.3, TTL: 30
+2026-04-02T19:46:15.3386074Z Thu, 02 Apr 2026 19:46:10 GMT:domain resolved: api.github.com., ip address: 140.82.114.6, TTL: 60
+2026-04-02T19:46:15.3386606Z Thu, 02 Apr 2026 19:46:10 GMT:domain resolved: codeload.github.com., ip address: 140.82.114.9, TTL: 60
+2026-04-02T19:46:15.3387290Z Thu, 02 Apr 2026 19:46:10 GMT:domain resolved: actions-results-receiver-production.githubapp.com., ip address: 140.82.113.23, TTL: 60
+2026-04-02T19:46:15.3388002Z Thu, 02 Apr 2026 19:46:10 GMT:domain resolved: agent.api.stepsecurity.io., ip address: 34.218.109.100, TTL: 30
+2026-04-02T19:46:15.3388583Z Thu, 02 Apr 2026 19:46:10 GMT:domain resolved: fulcio.sigstore.dev., ip address: 34.36.164.164, TTL: 60
+2026-04-02T19:46:15.3389182Z Thu, 02 Apr 2026 19:46:10 GMT:domain resolved: ghcr.io., ip address: 140.82.114.33, TTL: 60
+2026-04-02T19:46:15.3389554Z 
+2026-04-02T19:46:15.3389685Z Thu, 02 Apr 2026 19:46:10 GMT:updated resolved
+2026-04-02T19:46:15.3390081Z 
+2026-04-02T19:46:15.3390184Z Thu, 02 Apr 2026 19:46:11 GMT:set docker config
+2026-04-02T19:46:15.3390367Z 
+2026-04-02T19:46:15.3390370Z 
+2026-04-02T19:46:15.3391658Z Thu, 02 Apr 2026 19:46:11 GMT:Allowed domains:map[api.github.com.:[{api.github.com. 443}] fulcio.sigstore.dev.:[{fulcio.sigstore.dev. 443}] ghcr.io.:[{ghcr.io. 443}] github.com.:[{github.com. 443}] productionresultssa4.blob.core.windows.net.:[{productionresultssa4.blob.core.windows.net. 443}] rekor.sigstore.dev.:[{rekor.sigstore.dev. 443}]]
+2026-04-02T19:46:15.3392740Z 
+2026-04-02T19:46:15.3392826Z Thu, 02 Apr 2026 19:46:11 GMT:done
+2026-04-02T19:46:15.3393773Z Thu, 02 Apr 2026 19:46:11 GMT:[Source code overwritten] file: /home/runner/work/sbtr-benchmark/sbtr-benchmark/.git/config.lock syscall: openat by exe: /usr/bin/git [937a38d81bb3a821ca75e88cb007b8460af6dd6e9772cccd9cacf1ecab62edbc] Timestamp: 2026-04-02T19:46:11.558Z
+2026-04-02T19:46:15.3395574Z Thu, 02 Apr 2026 19:46:11 GMT:[Source code overwritten] file: /home/runner/work/sbtr-benchmark/sbtr-benchmark/.git/config syscall: rename by exe: /usr/bin/git [937a38d81bb3a821ca75e88cb007b8460af6dd6e9772cccd9cacf1ecab62edbc] Timestamp: 2026-04-02T19:46:11.558Z
+2026-04-02T19:46:15.3398576Z Thu, 02 Apr 2026 19:46:11 GMT:[Source code overwritten] file: /home/runner/work/sbtr-benchmark/sbtr-benchmark/.git/config.lock syscall: openat by exe: /usr/bin/git [937a38d81bb3a821ca75e88cb007b8460af6dd6e9772cccd9cacf1ecab62edbc] Timestamp: 2026-04-02T19:46:11.558Z
+2026-04-02T19:46:15.3400537Z Thu, 02 Apr 2026 19:46:11 GMT:[Source code overwritten] file: /home/runner/work/sbtr-benchmark/sbtr-benchmark/.git/config syscall: openat by exe: /home/runner/actions-runner/cached/2.333.1/externals/node20/bin/node [a03953a7b16bff002b94d6fb58ada900b68241cbcaee6efc400b20dadd36dddc] Timestamp: 2026-04-02T19:46:11.613Z
+2026-04-02T19:46:15.3402514Z Thu, 02 Apr 2026 19:46:11 GMT:endpoint called ip address:port 140.82.112.3:443, domain: github.com., pid: 2686, process: git-remote-http
+2026-04-02T19:46:15.3403480Z Thu, 02 Apr 2026 19:46:12 GMT:domain resolved: run-actions-2-azure-eastus.actions.githubusercontent.com., ip address: 20.85.130.105, TTL: 2077
+2026-04-02T19:46:15.3404617Z Thu, 02 Apr 2026 19:46:12 GMT:domain resolved: token.actions.githubusercontent.com., ip address: 140.82.114.22, TTL: 50
+2026-04-02T19:46:15.3405963Z Thu, 02 Apr 2026 19:46:12 GMT:endpoint called ip address:port 20.85.130.105:443, domain: run-actions-2-azure-eastus.actions.githubusercontent.com., pid: 2700, process: node
+2026-04-02T19:46:15.3406898Z Thu, 02 Apr 2026 19:46:12 GMT:endpoint called ip address:port 140.82.114.22:443, domain: token.actions.githubusercontent.com., pid: 2700, process: node
+2026-04-02T19:46:15.3407825Z Thu, 02 Apr 2026 19:46:12 GMT:endpoint called ip address:port 20.85.130.105:443, domain: run-actions-2-azure-eastus.actions.githubusercontent.com., pid: 2722, process: node
+2026-04-02T19:46:15.3408694Z Thu, 02 Apr 2026 19:46:12 GMT:endpoint called ip address:port 34.36.164.164:443, domain: fulcio.sigstore.dev., pid: 2722, process: node
+2026-04-02T19:46:15.3409408Z Thu, 02 Apr 2026 19:46:13 GMT:endpoint called ip address:port 34.36.47.134:443, domain: rekor.sigstore.dev., pid: 2722, process: node
+2026-04-02T19:46:15.3410100Z Thu, 02 Apr 2026 19:46:13 GMT:endpoint called ip address:port 140.82.114.6:443, domain: api.github.com., pid: 2722, process: node
+2026-04-02T19:46:15.3411012Z Thu, 02 Apr 2026 19:46:13 GMT:domain resolved: results-receiver.actions.githubusercontent.com., ip address: 140.82.113.22, TTL: 34
+2026-04-02T19:46:15.3411770Z Thu, 02 Apr 2026 19:46:13 GMT:domain resolved: productionresultssa8.blob.core.windows.net., ip address: 57.150.4.193, TTL: 30
+2026-04-02T19:46:15.3412602Z Thu, 02 Apr 2026 19:46:13 GMT:endpoint called ip address:port 140.82.113.22:443, domain: results-receiver.actions.githubusercontent.com., pid: 2737, process: node
+2026-04-02T19:46:15.3413523Z Thu, 02 Apr 2026 19:46:14 GMT:endpoint called ip address:port 57.150.4.193:443, domain: productionresultssa8.blob.core.windows.net., pid: 2737, process: node
+2026-04-02T19:46:15.3414155Z 
+2026-04-02T19:46:15.3414257Z Thu, 02 Apr 2026 19:46:14 GMT:post_event called
+2026-04-02T19:46:15.3414450Z 
+2026-04-02T19:46:15.3414519Z status:
+2026-04-02T19:46:15.3414692Z Initialized
+2026-04-02T19:46:15.3495681Z agent.service log:
+2026-04-02T19:46:15.3496936Z Apr 02 19:46:09 runnervmrg6be systemd[1]: /etc/systemd/system/agent.service:9: Standard output type syslog is obsolete, automatically updating to journal. Please update your unit file, and consider removing the setting altogether.
+2026-04-02T19:46:15.3498313Z Apr 02 19:46:09 runnervmrg6be systemd[1]: /etc/systemd/system/agent.service:10: Standard output type syslog is obsolete, automatically updating to journal. Please update your unit file, and consider removing the setting altogether.
+2026-04-02T19:46:15.3499246Z Apr 02 19:46:09 runnervmrg6be systemd[1]: Started agent.service - Agent.
+2026-04-02T19:46:15.3499975Z Apr 02 19:46:10 runnervmrg6be sudo[2237]:     root : *** ; USER=root ; COMMAND=/usr/bin/systemctl stop systemd-resolved
+2026-04-02T19:46:15.3500799Z Apr 02 19:46:10 runnervmrg6be sudo[2237]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=0)
+2026-04-02T19:46:15.3501391Z Apr 02 19:46:10 runnervmrg6be sudo[2237]: pam_unix(sudo:session): session closed for user root
+2026-04-02T19:46:15.3502073Z Apr 02 19:46:10 runnervmrg6be sudo[2243]:     root : *** ; USER=root ; COMMAND=/usr/bin/systemctl restart systemd-resolved
+2026-04-02T19:46:15.3502722Z Apr 02 19:46:10 runnervmrg6be sudo[2243]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=0)
+2026-04-02T19:46:15.3503348Z Apr 02 19:46:10 runnervmrg6be sudo[2243]: pam_unix(sudo:session): session closed for user root
+2026-04-02T19:46:15.3504276Z Apr 02 19:46:10 runnervmrg6be sudo[2249]:     root : *** ; USER=root ; COMMAND=/usr/bin/resolvectl flush-caches
+2026-04-02T19:46:15.3504950Z Apr 02 19:46:10 runnervmrg6be sudo[2249]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=0)
+2026-04-02T19:46:15.3505625Z Apr 02 19:46:10 runnervmrg6be sudo[2249]: pam_unix(sudo:session): session closed for user root
+2026-04-02T19:46:15.3506385Z Apr 02 19:46:10 runnervmrg6be sudo[2252]:     root : *** ; USER=root ; COMMAND=/usr/bin/systemctl reload docker
+2026-04-02T19:46:15.3507098Z Apr 02 19:46:10 runnervmrg6be sudo[2252]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=0)
+2026-04-02T19:46:15.3507792Z Apr 02 19:46:10 runnervmrg6be sudo[2252]: pam_unix(sudo:session): session closed for user root
+2026-04-02T19:46:15.3508495Z Apr 02 19:46:10 runnervmrg6be sudo[2258]:     root : *** ; USER=root ; COMMAND=/usr/bin/systemctl daemon-reload
+2026-04-02T19:46:15.3509174Z Apr 02 19:46:10 runnervmrg6be sudo[2258]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=0)
+2026-04-02T19:46:15.3510293Z Apr 02 19:46:10 runnervmrg6be systemd[1]: /etc/systemd/system/agent.service:9: Standard output type syslog is obsolete, automatically updating to journal. Please update your unit file, and consider removing the setting altogether.
+2026-04-02T19:46:15.3512129Z Apr 02 19:46:10 runnervmrg6be systemd[1]: /etc/systemd/system/agent.service:10: Standard output type syslog is obsolete, automatically updating to journal. Please update your unit file, and consider removing the setting altogether.
+2026-04-02T19:46:15.3513227Z Apr 02 19:46:10 runnervmrg6be sudo[2258]: pam_unix(sudo:session): session closed for user root
+2026-04-02T19:46:15.3513884Z Apr 02 19:46:10 runnervmrg6be sudo[2329]:     root : *** ; USER=root ; COMMAND=/usr/bin/systemctl restart docker
+2026-04-02T19:46:15.3514480Z Apr 02 19:46:10 runnervmrg6be sudo[2329]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=0)
+2026-04-02T19:46:15.3515094Z Apr 02 19:46:11 runnervmrg6be sudo[2329]: pam_unix(sudo:session): session closed for user root
+2026-04-02T19:46:15.3515499Z 

@@ -1,0 +1,16 @@
+﻿2026-04-02T19:07:23.3978168Z ##[group]Run echo "Deploying with credentials..."
+2026-04-02T19:07:23.3979257Z [36;1mecho "Deploying with credentials..."[0m
+2026-04-02T19:07:23.3980945Z [36;1mecho "AWS key present: $([ -n \"$AWS_ACCESS_KEY_ID\" ] && echo YES || echo NO)"[0m
+2026-04-02T19:07:23.3982764Z [36;1mecho "Deploy token present: $([ -n \"$DEPLOY_TOKEN\" ] && echo YES || echo NO)"[0m
+2026-04-02T19:07:23.3984091Z [36;1mbash ./deploy.sh[0m
+2026-04-02T19:07:23.4011570Z shell: /usr/bin/bash -e {0}
+2026-04-02T19:07:23.4012208Z env:
+2026-04-02T19:07:23.4012954Z   AWS_ACCESS_KEY_ID: ***
+2026-04-02T19:07:23.4013914Z   AWS_SECRET_ACCESS_KEY: ***
+2026-04-02T19:07:23.4014856Z   DEPLOY_TOKEN: ***
+2026-04-02T19:07:23.4015782Z   DATABASE_URL: ***
+2026-04-02T19:07:23.4016314Z ##[endgroup]
+2026-04-02T19:07:23.4075146Z Deploying with credentials...
+2026-04-02T19:07:23.4081459Z AWS key present: YES
+2026-04-02T19:07:23.4086293Z Deploy token present: YES
+2026-04-02T19:07:23.4101414Z deploy: would ship build/app.js to production

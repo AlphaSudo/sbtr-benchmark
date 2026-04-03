@@ -1,0 +1,21 @@
+﻿2026-04-02T19:45:52.8951892Z ##[group]Run step-security/harden-runner@v2
+2026-04-02T19:45:52.8952502Z with:
+2026-04-02T19:45:52.8952748Z   egress-policy: block
+2026-04-02T19:45:52.8953071Z   allowed-endpoints: github.com:443 api.github.com:443
+
+2026-04-02T19:45:52.8953654Z   token: ***
+2026-04-02T19:45:52.8953892Z   disable-telemetry: false
+2026-04-02T19:45:52.8954166Z   disable-sudo: false
+2026-04-02T19:45:52.8954436Z   disable-sudo-and-containers: false
+2026-04-02T19:45:52.8954755Z   disable-file-monitoring: false
+2026-04-02T19:45:52.8955039Z env:
+2026-04-02T19:45:52.8955258Z   STATE_disableSudo: false
+2026-04-02T19:45:52.8955533Z   STATE_disableSudoAndContainers: false
+2026-04-02T19:45:52.8955848Z   STATE_monitorStatusCode: 200
+2026-04-02T19:45:52.8956121Z   STATE_addSummary: true
+2026-04-02T19:45:52.8956468Z   STATE_correlation_id: fba80278-079a-4578-bc7c-63f0ce54cbb8
+2026-04-02T19:45:52.8956833Z   STATE_isTLS: false
+2026-04-02T19:45:52.8957092Z ##[endgroup]
+2026-04-02T19:45:52.9640717Z [harden-runner] main-step
+2026-04-02T19:45:52.9646235Z [32mView security insights and recommended policy at:[0m
+2026-04-02T19:45:52.9646905Z https://app.stepsecurity.io/github/AlphaSudo/sbtr-benchmark/actions/runs/23918796175

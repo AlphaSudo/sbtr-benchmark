@@ -1,0 +1,9 @@
+2026-04-02T19:11:31.1450000Z Requested labels: ubuntu-latest
+2026-04-02T19:11:31.1450000Z Job defined at: AlphaSudo/sbtr-benchmark/.github/workflows/tier3-trb.yml@refs/heads/main
+2026-04-02T19:11:31.1450000Z Waiting for a runner to pick up this job...
+2026-04-02T19:11:31.1400000Z Evaluating release.if
+2026-04-02T19:11:31.1400000Z Evaluating: (success() && ((needs.validate-outputs.outputs.safe_to_release == 'true')))
+2026-04-02T19:11:31.1400000Z Expanded: (true && ('true' == 'true'))
+2026-04-02T19:11:31.1400000Z Result: true
+2026-04-02T19:11:31.4340000Z Job is about to start running on the hosted runner: GitHub Actions 1000000362
+2026-04-02T19:11:31.4330000Z Job is waiting for a hosted runner to come online.

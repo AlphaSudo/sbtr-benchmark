@@ -1,0 +1,25 @@
+﻿2026-04-02T19:07:23.4242240Z ##[group]Run actions/upload-artifact@v4
+2026-04-02T19:07:23.4243121Z with:
+2026-04-02T19:07:23.4243555Z   name: tier1-app
+2026-04-02T19:07:23.4244064Z   path: build/app.js
+2026-04-02T19:07:23.4244618Z   if-no-files-found: warn
+2026-04-02T19:07:23.4245234Z   compression-level: 6
+2026-04-02T19:07:23.4245793Z   overwrite: false
+2026-04-02T19:07:23.4246338Z   include-hidden-files: false
+2026-04-02T19:07:23.4246955Z env:
+2026-04-02T19:07:23.4247581Z   AWS_ACCESS_KEY_ID: ***
+2026-04-02T19:07:23.4248485Z   AWS_SECRET_ACCESS_KEY: ***
+2026-04-02T19:07:23.4249382Z   DEPLOY_TOKEN: ***
+2026-04-02T19:07:23.4250719Z   DATABASE_URL: ***
+2026-04-02T19:07:23.4251423Z ##[endgroup]
+2026-04-02T19:07:23.6458951Z With the provided path, there will be 1 file uploaded
+2026-04-02T19:07:23.6464273Z Artifact name is valid!
+2026-04-02T19:07:23.6465585Z Root directory input is valid!
+2026-04-02T19:07:23.8509775Z Beginning upload of artifact content to blob storage
+2026-04-02T19:07:23.9755131Z Uploaded bytes 228
+2026-04-02T19:07:24.0122970Z Finished uploading artifact content to blob storage!
+2026-04-02T19:07:24.0126145Z SHA256 digest of uploaded artifact zip is 4cb3fa42142bab6d371966e0a9a76845e8c7256ea80e84caa0ad04604c932e24
+2026-04-02T19:07:24.0128083Z Finalizing artifact upload
+2026-04-02T19:07:24.1009286Z Artifact tier1-app.zip successfully finalized. Artifact ID 6248661772
+2026-04-02T19:07:24.1011183Z Artifact tier1-app has been successfully uploaded! Final size is 228 bytes. Artifact ID is 6248661772
+2026-04-02T19:07:24.1020427Z Artifact download URL: https://github.com/AlphaSudo/sbtr-benchmark/actions/runs/23917311429/artifacts/6248661772

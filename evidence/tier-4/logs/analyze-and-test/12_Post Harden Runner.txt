@@ -1,0 +1,85 @@
+﻿2026-04-02T19:45:54.4851432Z Post job cleanup.
+2026-04-02T19:45:54.5588307Z [harden-runner] post-step
+2026-04-02T19:45:55.5611882Z log:
+2026-04-02T19:45:55.5613137Z Thu, 02 Apr 2026 19:45:48 GMT:[buildInfo] tag=v0.14.4 commit=206a878142929550e5382f5b977384f0c313f93d branch=HEAD 
+2026-04-02T19:45:55.5613902Z 
+2026-04-02T19:45:55.5614080Z Thu, 02 Apr 2026 19:45:48 GMT:read config 
+2026-04-02T19:45:55.5618512Z  &{Repo:AlphaSudo/sbtr-benchmark CorrelationId:fba80278-079a-4578-bc7c-63f0ce54cbb8 RunId:23918796175 WorkingDirectory:/home/runner/work/sbtr-benchmark/sbtr-benchmark APIURL:https://agent.api.stepsecurity.io/v1 OneTimeKey: Endpoints:map[api.github.com.:[{domainName:api.github.com. port:443}] github.com.:[{domainName:github.com. port:443}] productionresultssa4.blob.core.windows.net.:[{domainName:productionresultssa4.blob.core.windows.net. port:443}]] EgressPolicy:block DisableTelemetry:false DisableSudo:false DisableSudoAndContainers:false DisableFileMonitoring:false Private:false}
+2026-04-02T19:45:55.5623004Z 
+2026-04-02T19:45:55.5623555Z Thu, 02 Apr 2026 19:45:48 GMT:Step Security Job Correlation ID: fba80278-079a-4578-bc7c-63f0ce54cbb8
+2026-04-02T19:45:55.5624175Z 
+2026-04-02T19:45:55.5624575Z Thu, 02 Apr 2026 19:45:48 GMT:Global feature flags: {AgentType:agent-oss EnableArmour:false}
+2026-04-02T19:45:55.5625382Z Thu, 02 Apr 2026 19:45:48 GMT:initialized global feature flags
+2026-04-02T19:45:55.5625800Z 
+2026-04-02T19:45:55.5626008Z Thu, 02 Apr 2026 19:45:48 GMT:started process monitor
+2026-04-02T19:45:55.5626387Z 
+2026-04-02T19:45:55.5626593Z Thu, 02 Apr 2026 19:45:48 GMT:Monitor Processes called
+2026-04-02T19:45:55.5627155Z Thu, 02 Apr 2026 19:45:48 GMT:NewAuditClient created
+2026-04-02T19:45:55.5627689Z Thu, 02 Apr 2026 19:45:48 GMT:Status is enabled
+2026-04-02T19:45:55.5628501Z Thu, 02 Apr 2026 19:45:48 GMT:domain resolved: codeload.github.com., ip address: 140.82.112.9, TTL: 60
+2026-04-02T19:45:55.5629917Z Thu, 02 Apr 2026 19:45:48 GMT:domain resolved: actions-results-receiver-production.githubapp.com., ip address: 140.82.113.23, TTL: 60
+2026-04-02T19:45:55.5631395Z Thu, 02 Apr 2026 19:45:48 GMT:domain resolved: agent.api.stepsecurity.io., ip address: 184.33.103.14, TTL: 57
+2026-04-02T19:45:55.5632505Z Thu, 02 Apr 2026 19:45:48 GMT:Rules deleted
+2026-04-02T19:45:55.5633223Z Thu, 02 Apr 2026 19:45:48 GMT:File monitor added for /home/runner/work/sbtr-benchmark/sbtr-benchmark
+2026-04-02T19:45:55.5634004Z Thu, 02 Apr 2026 19:45:48 GMT:Agent file monitor added
+2026-04-02T19:45:55.5634592Z Thu, 02 Apr 2026 19:45:48 GMT:Docker's daemon.json file monitor added
+2026-04-02T19:45:55.5635235Z Thu, 02 Apr 2026 19:45:48 GMT:Systemd's resolved.conf file monitor added
+2026-04-02T19:45:55.5635842Z Thu, 02 Apr 2026 19:45:48 GMT:Net monitor added for TCP (connect)
+2026-04-02T19:45:55.5636494Z Thu, 02 Apr 2026 19:45:48 GMT:Net monitor added for UDP (sendto & sendmsg)
+2026-04-02T19:45:55.5637408Z Thu, 02 Apr 2026 19:45:48 GMT:Process monitor added
+2026-04-02T19:45:55.5637875Z Thu, 02 Apr 2026 19:45:48 GMT:receive called
+2026-04-02T19:45:55.5638186Z 
+2026-04-02T19:45:55.5638584Z Thu, 02 Apr 2026 19:45:48 GMT:domain resolved: api.github.com., ip address: 140.82.114.6, TTL: 60
+2026-04-02T19:45:55.5639741Z Thu, 02 Apr 2026 19:45:48 GMT:domain resolved: productionresultssa4.blob.core.windows.net., ip address: 57.150.27.1, TTL: 30
+2026-04-02T19:45:55.5641046Z Thu, 02 Apr 2026 19:45:48 GMT:domain resolved: github.com., ip address: 140.82.114.3, TTL: 60
+2026-04-02T19:45:55.5641377Z 
+2026-04-02T19:45:55.5641492Z Thu, 02 Apr 2026 19:45:48 GMT:updated resolved
+2026-04-02T19:45:55.5641704Z 
+2026-04-02T19:45:55.5641807Z Thu, 02 Apr 2026 19:45:52 GMT:set docker config
+2026-04-02T19:45:55.5642236Z 
+2026-04-02T19:45:55.5642245Z 
+2026-04-02T19:45:55.5642955Z Thu, 02 Apr 2026 19:45:52 GMT:Allowed domains:map[api.github.com.:[{api.github.com. 443}] github.com.:[{github.com. 443}] productionresultssa4.blob.core.windows.net.:[{productionresultssa4.blob.core.windows.net. 443}]]
+2026-04-02T19:45:55.5643744Z 
+2026-04-02T19:45:55.5643831Z Thu, 02 Apr 2026 19:45:52 GMT:done
+2026-04-02T19:45:55.5645066Z Thu, 02 Apr 2026 19:45:53 GMT:[Source code overwritten] file: /home/runner/work/sbtr-benchmark/sbtr-benchmark/.git/config.lock syscall: openat by exe: /usr/bin/git [937a38d81bb3a821ca75e88cb007b8460af6dd6e9772cccd9cacf1ecab62edbc] Timestamp: 2026-04-02T19:45:53.091Z
+2026-04-02T19:45:55.5646798Z Thu, 02 Apr 2026 19:45:53 GMT:[Source code overwritten] file: /home/runner/work/sbtr-benchmark/sbtr-benchmark/.git/config syscall: rename by exe: /usr/bin/git [937a38d81bb3a821ca75e88cb007b8460af6dd6e9772cccd9cacf1ecab62edbc] Timestamp: 2026-04-02T19:45:53.091Z
+2026-04-02T19:45:55.5649073Z Thu, 02 Apr 2026 19:45:53 GMT:[Source code overwritten] file: /home/runner/work/sbtr-benchmark/sbtr-benchmark/.git/config.lock syscall: openat by exe: /usr/bin/git [937a38d81bb3a821ca75e88cb007b8460af6dd6e9772cccd9cacf1ecab62edbc] Timestamp: 2026-04-02T19:45:53.091Z
+2026-04-02T19:45:55.5651476Z Thu, 02 Apr 2026 19:45:53 GMT:[Source code overwritten] file: /home/runner/work/sbtr-benchmark/sbtr-benchmark/.git/config syscall: openat by exe: /home/runner/actions-runner/cached/2.333.1/externals/node20/bin/node [a03953a7b16bff002b94d6fb58ada900b68241cbcaee6efc400b20dadd36dddc] Timestamp: 2026-04-02T19:45:53.163Z
+2026-04-02T19:45:55.5653348Z Thu, 02 Apr 2026 19:45:53 GMT:endpoint called ip address:port 140.82.114.3:443, domain: github.com., pid: 2654, process: git-remote-http
+2026-04-02T19:45:55.5654208Z Thu, 02 Apr 2026 19:45:53 GMT:endpoint called ip address:port 140.82.114.6:443, domain: api.github.com., pid: 2677, process: curl
+2026-04-02T19:45:55.5655022Z Thu, 02 Apr 2026 19:45:53 GMT:endpoint called ip address:port 140.82.114.6:443, domain: api.github.com., pid: 2679, process: curl
+2026-04-02T19:45:55.5656000Z Thu, 02 Apr 2026 19:45:54 GMT:endpoint called ip address:port 140.82.114.6:443, domain: api.github.com., pid: 2681, process: curl
+2026-04-02T19:45:55.5656668Z Thu, 02 Apr 2026 19:45:54 GMT:domain not allowed: httpbin.org.
+2026-04-02T19:45:55.5657157Z Thu, 02 Apr 2026 19:45:54 GMT:ip address dropped: 54.185.253.63
+2026-04-02T19:45:55.5657709Z Thu, 02 Apr 2026 19:45:54 GMT:endpoint called ip address:port 54.185.253.63:443, domain: httpbin.org., pid: 2695, process: curl
+2026-04-02T19:45:55.5658381Z 
+2026-04-02T19:45:55.5658556Z Thu, 02 Apr 2026 19:45:54 GMT:post_event called
+2026-04-02T19:45:55.5659515Z Thu, 02 Apr 2026 19:45:54 GMT:domain resolved: results-receiver.actions.githubusercontent.com., ip address: 140.82.112.22, TTL: 30
+2026-04-02T19:45:55.5660260Z 
+2026-04-02T19:45:55.5660347Z status:
+2026-04-02T19:45:55.5660528Z Initialized
+2026-04-02T19:45:55.5779221Z agent.service log:
+2026-04-02T19:45:55.5780438Z Apr 02 19:45:48 runnervmrg6be systemd[1]: /etc/systemd/system/agent.service:9: Standard output type syslog is obsolete, automatically updating to journal. Please update your unit file, and consider removing the setting altogether.
+2026-04-02T19:45:55.5782468Z Apr 02 19:45:48 runnervmrg6be systemd[1]: /etc/systemd/system/agent.service:10: Standard output type syslog is obsolete, automatically updating to journal. Please update your unit file, and consider removing the setting altogether.
+2026-04-02T19:45:55.5783446Z Apr 02 19:45:48 runnervmrg6be systemd[1]: Started agent.service - Agent.
+2026-04-02T19:45:55.5784684Z Apr 02 19:45:48 runnervmrg6be sudo[2205]:     root : *** ; USER=root ; COMMAND=/usr/bin/systemctl stop systemd-resolved
+2026-04-02T19:45:55.5785390Z Apr 02 19:45:48 runnervmrg6be sudo[2205]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=0)
+2026-04-02T19:45:55.5786000Z Apr 02 19:45:48 runnervmrg6be sudo[2205]: pam_unix(sudo:session): session closed for user root
+2026-04-02T19:45:55.5786704Z Apr 02 19:45:48 runnervmrg6be sudo[2211]:     root : *** ; USER=root ; COMMAND=/usr/bin/systemctl restart systemd-resolved
+2026-04-02T19:45:55.5787374Z Apr 02 19:45:48 runnervmrg6be sudo[2211]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=0)
+2026-04-02T19:45:55.5787999Z Apr 02 19:45:48 runnervmrg6be sudo[2211]: pam_unix(sudo:session): session closed for user root
+2026-04-02T19:45:55.5788857Z Apr 02 19:45:48 runnervmrg6be sudo[2218]:     root : *** ; USER=root ; COMMAND=/usr/bin/resolvectl flush-caches
+2026-04-02T19:45:55.5789511Z Apr 02 19:45:48 runnervmrg6be sudo[2218]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=0)
+2026-04-02T19:45:55.5790109Z Apr 02 19:45:48 runnervmrg6be sudo[2218]: pam_unix(sudo:session): session closed for user root
+2026-04-02T19:45:55.5790732Z Apr 02 19:45:48 runnervmrg6be sudo[2221]:     root : *** ; USER=root ; COMMAND=/usr/bin/systemctl reload docker
+2026-04-02T19:45:55.5791354Z Apr 02 19:45:48 runnervmrg6be sudo[2221]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=0)
+2026-04-02T19:45:55.5792165Z Apr 02 19:45:48 runnervmrg6be sudo[2221]: pam_unix(sudo:session): session closed for user root
+2026-04-02T19:45:55.5792909Z Apr 02 19:45:48 runnervmrg6be sudo[2230]:     root : *** ; USER=root ; COMMAND=/usr/bin/systemctl daemon-reload
+2026-04-02T19:45:55.5793532Z Apr 02 19:45:48 runnervmrg6be sudo[2230]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=0)
+2026-04-02T19:45:55.5794609Z Apr 02 19:45:49 runnervmrg6be systemd[1]: /etc/systemd/system/agent.service:9: Standard output type syslog is obsolete, automatically updating to journal. Please update your unit file, and consider removing the setting altogether.
+2026-04-02T19:45:55.5796063Z Apr 02 19:45:49 runnervmrg6be systemd[1]: /etc/systemd/system/agent.service:10: Standard output type syslog is obsolete, automatically updating to journal. Please update your unit file, and consider removing the setting altogether.
+2026-04-02T19:45:55.5797082Z Apr 02 19:45:49 runnervmrg6be sudo[2230]: pam_unix(sudo:session): session closed for user root
+2026-04-02T19:45:55.5797710Z Apr 02 19:45:49 runnervmrg6be sudo[2299]:     root : *** ; USER=root ; COMMAND=/usr/bin/systemctl restart docker
+2026-04-02T19:45:55.5798341Z Apr 02 19:45:49 runnervmrg6be sudo[2299]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=0)
+2026-04-02T19:45:55.5798927Z Apr 02 19:45:52 runnervmrg6be sudo[2299]: pam_unix(sudo:session): session closed for user root
+2026-04-02T19:45:55.5799245Z 

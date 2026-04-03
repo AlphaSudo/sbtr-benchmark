@@ -1,0 +1,61 @@
+﻿2026-04-02T19:45:59.9499950Z Current runner version: '2.333.1'
+2026-04-02T19:45:59.9534464Z ##[group]Runner Image Provisioner
+2026-04-02T19:45:59.9535618Z Hosted Compute Agent
+2026-04-02T19:45:59.9536516Z Version: 20260213.493
+2026-04-02T19:45:59.9537586Z Commit: 5c115507f6dd24b8de37d8bbe0bb4509d0cc0fa3
+2026-04-02T19:45:59.9539094Z Build Date: 2026-02-13T00:28:41Z
+2026-04-02T19:45:59.9540334Z Worker ID: {e1506f5e-40c0-44cb-961f-8b0b84657646}
+2026-04-02T19:45:59.9541702Z Azure Region: eastus
+2026-04-02T19:45:59.9542615Z ##[endgroup]
+2026-04-02T19:45:59.9544547Z ##[group]Operating System
+2026-04-02T19:45:59.9545685Z Ubuntu
+2026-04-02T19:45:59.9546477Z 24.04.4
+2026-04-02T19:45:59.9547225Z LTS
+2026-04-02T19:45:59.9547960Z ##[endgroup]
+2026-04-02T19:45:59.9549009Z ##[group]Runner Image
+2026-04-02T19:45:59.9549835Z Image: ubuntu-24.04
+2026-04-02T19:45:59.9550849Z Version: 20260329.72.1
+2026-04-02T19:45:59.9552854Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260329.72/images/ubuntu/Ubuntu2404-Readme.md
+2026-04-02T19:45:59.9555469Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260329.72
+2026-04-02T19:45:59.9556917Z ##[endgroup]
+2026-04-02T19:45:59.9558531Z ##[group]GITHUB_TOKEN Permissions
+2026-04-02T19:45:59.9561480Z Contents: read
+2026-04-02T19:45:59.9562381Z Metadata: read
+2026-04-02T19:45:59.9563237Z ##[endgroup]
+2026-04-02T19:45:59.9566431Z Secret source: Actions
+2026-04-02T19:45:59.9567848Z Prepare workflow directory
+2026-04-02T19:46:00.0024736Z Prepare all required actions
+2026-04-02T19:46:00.0176217Z Complete job name: validate-outputs
+2026-04-02T19:46:00.1072420Z ##[group]Run TEST_RESULT='true'
+2026-04-02T19:46:00.1073140Z [36;1mTEST_RESULT='true'[0m
+2026-04-02T19:46:00.1073783Z [36;1mCHANGED=''[0m
+2026-04-02T19:46:00.1074292Z [36;1m[0m
+2026-04-02T19:46:00.1074881Z [36;1mecho "Evaluating outputs from the untrusted lane"[0m
+2026-04-02T19:46:00.1075920Z [36;1mecho "This allowlist is a benchmark demo, not a production sanitizer."[0m
+2026-04-02T19:46:00.1076752Z [36;1m[0m
+2026-04-02T19:46:00.1077431Z [36;1mif [[ "$TEST_RESULT" != "true" && "$TEST_RESULT" != "false" ]]; then[0m
+2026-04-02T19:46:00.1078209Z [36;1m  echo "::error::Invalid test output"[0m
+2026-04-02T19:46:00.1079152Z [36;1m  exit 1[0m
+2026-04-02T19:46:00.1079594Z [36;1mfi[0m
+2026-04-02T19:46:00.1080153Z [36;1m[0m
+2026-04-02T19:46:00.1080752Z [36;1mif echo "$CHANGED" | grep -qP '[^a-zA-Z0-9_.,/\- ]'; then[0m
+2026-04-02T19:46:00.1081607Z [36;1m  echo "::error::Suspicious characters in file list output"[0m
+2026-04-02T19:46:00.1082503Z [36;1m  echo "OUTPUT INJECTION BLOCKED"[0m
+2026-04-02T19:46:00.1083074Z [36;1m  exit 1[0m
+2026-04-02T19:46:00.1083598Z [36;1mfi[0m
+2026-04-02T19:46:00.1084048Z [36;1m[0m
+2026-04-02T19:46:00.1084551Z [36;1mif [ "${#CHANGED}" -gt 2048 ]; then[0m
+2026-04-02T19:46:00.1085322Z [36;1m  echo "::error::Changed file output is unexpectedly large"[0m
+2026-04-02T19:46:00.1086035Z [36;1m  exit 1[0m
+2026-04-02T19:46:00.1086465Z [36;1mfi[0m
+2026-04-02T19:46:00.1086987Z [36;1m[0m
+2026-04-02T19:46:00.1087454Z [36;1mecho "Outputs validated successfully"[0m
+2026-04-02T19:46:00.1088135Z [36;1mecho "safe=true" >> "$GITHUB_OUTPUT"[0m
+2026-04-02T19:46:00.1505347Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-04-02T19:46:00.1506594Z ##[endgroup]
+2026-04-02T19:46:00.1704702Z Evaluating outputs from the untrusted lane
+2026-04-02T19:46:00.1705869Z This allowlist is a benchmark demo, not a production sanitizer.
+2026-04-02T19:46:00.1706661Z Outputs validated successfully
+2026-04-02T19:46:00.1828575Z Evaluate and set job outputs
+2026-04-02T19:46:00.1837719Z Set output 'safe_to_release'
+2026-04-02T19:46:00.1840416Z Cleaning up orphan processes
