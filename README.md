@@ -42,6 +42,8 @@ The only changing variable was the workflow design.
 
 [Full benchmark results ->](RESULTS.md)
 
+[Full technical paper ->](PAPER.md)
+
 ## Reproduce It Yourself
 
 1. Fork this repository
